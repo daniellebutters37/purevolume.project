@@ -1,8 +1,32 @@
+// variables
+
 $searchAnimationTime: .5s;
+
+// resets
+
 body{
     padding: 0;
     margin: 0;
 }
+
+// STYLES
+
+.hidden{
+    display: none;
+}
+
+.right{
+    float: right;
+}
+
+.max-width{
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// header
+
 .search-close{
     position: relative;
     width: 30px;
@@ -98,28 +122,28 @@ body{
     z-index: 4.5;
     transition: top .5s;
     padding: 10px 0px;
+    ul{
+        list-style: none;
+        li{
+            display: inline-block;
+            margin-right: 20px;
+        }
+    }
 }
+
+#logo{
+    height: 40px;
+    margin-left: 20px;
+}
+
+// MAIN CONTENT
+
 section{
     background-color: antiquewhite;
     width: 100%;
     height: 5000px;
 }
-.max-width{
-    max-width: 1020px;
-    width: 100%;
-    margin: 0 auto;
-}
-#subHeader ul{
-    list-style: none;
-    li{
-        display: inline-block;
-        margin-right: 20px;
-    }
-}
-#logo{
-    height: 40px;
-    margin-left: 20px;
-}
-.right{
-    float: right;
-}
+
+// home section
+
+// category
