@@ -132,7 +132,7 @@ body {
   z-index: 4.5;
   -webkit-transition: top .5s;
   transition: top .5s;
-  padding: 15px 0px;
+  padding: 20px 0px;
 }
 
 #subHeader ul {
@@ -147,7 +147,7 @@ body {
 }
 
 #subHeader ul li::after {
-  margin-top: 5px;
+  margin-top: 7px;
   content: '';
   display: block;
   width: 0;
