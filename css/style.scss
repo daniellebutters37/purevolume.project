@@ -1,6 +1,7 @@
 // variables
 
 $searchAnimationTime: .5s;
+$secondaryColour: grey; //should be changed once we definde colours we use
 
 // resets
 
@@ -121,12 +122,43 @@ body{
     background-color: #ffffff;
     z-index: 4.5;
     transition: top .5s;
-    padding: 10px 0px;
+    padding: 15px 0px;
     ul{
         list-style: none;
         li{
+            position: relative;
             display: inline-block;
             margin-right: 20px;
+            cursor: pointer;
+            &::after{
+                margin-top: 5px;
+                content: '';
+                display: block;
+                width: 0;
+                height: 3px;
+                background: $secondaryColour; 
+                transition: width .3s;
+                opacity: 0.5;
+            }
+            &:hover::after{
+                width: 100%;
+                transition: width .3s;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 0;
+                height: 3px;
+                background: $secondaryColour; 
+                transition: width .3s;
+                opacity: 0.5;
+                position: absolute;
+                top: 120%;
+            }
+            &:hover::before{
+                width: 40%;
+                transition: width .3s;
+            }
         }
     }
 }
@@ -145,5 +177,5 @@ section{
 }
 
 // home section
- 
+
 // category

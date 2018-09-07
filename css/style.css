@@ -132,7 +132,7 @@ body {
   z-index: 4.5;
   -webkit-transition: top .5s;
   transition: top .5s;
-  padding: 10px 0px;
+  padding: 15px 0px;
 }
 
 #subHeader ul {
@@ -140,8 +140,47 @@ body {
 }
 
 #subHeader ul li {
+  position: relative;
   display: inline-block;
   margin-right: 20px;
+  cursor: pointer;
+}
+
+#subHeader ul li::after {
+  margin-top: 5px;
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: grey;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+  opacity: 0.5;
+}
+
+#subHeader ul li:hover::after {
+  width: 100%;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+}
+
+#subHeader ul li::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: grey;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+  opacity: 0.5;
+  position: absolute;
+  top: 120%;
+}
+
+#subHeader ul li:hover::before {
+  width: 40%;
+  -webkit-transition: width .3s;
+  transition: width .3s;
 }
 
 #logo {
