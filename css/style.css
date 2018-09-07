@@ -3,6 +3,20 @@ body {
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
+.right {
+  float: right;
+}
+
+.max-width {
+  max-width: 1020px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .search-close {
   position: relative;
   width: 30px;
@@ -121,18 +135,6 @@ body {
   padding: 10px 0px;
 }
 
-section {
-  background-color: antiquewhite;
-  width: 100%;
-  height: 5000px;
-}
-
-.max-width {
-  max-width: 1020px;
-  width: 100%;
-  margin: 0 auto;
-}
-
 #subHeader ul {
   list-style: none;
 }
@@ -147,7 +149,9 @@ section {
   margin-left: 20px;
 }
 
-.right {
-  float: right;
+section {
+  background-color: antiquewhite;
+  width: 100%;
+  height: 5000px;
 }
 /*# sourceMappingURL=style.css.map */
