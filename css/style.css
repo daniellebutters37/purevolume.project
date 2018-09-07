@@ -174,7 +174,7 @@ body {
   transition: width .3s;
   opacity: 0.5;
   position: absolute;
-  top: 120%;
+  top: 115%;
 }
 
 #subHeader ul li:hover::before {
