@@ -14,6 +14,18 @@ button {
   outline: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+}
+
 .hidden {
   display: none;
 }
@@ -30,6 +42,15 @@ button {
 
 p {
   margin: 0;
+}
+
+.centerTxt {
+  text-align: center;
+}
+
+h2, h3 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .leftHeading {
@@ -110,11 +131,21 @@ p {
   font-weight: 700;
   color: #171522;
   background-color: #fff32b;
+  margin-bottom: 20px;
 }
 
 .testSection {
   height: 1000px;
   background-color: antiquewhite;
+}
+
+.socialMedia {
+  text-align: center;
+  font-size: 2em;
+}
+
+.socialMedia .fa {
+  cursor: pointer;
 }
 
 #mainHeader {
@@ -358,6 +389,31 @@ section {
   margin: 0 auto;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+#footerNav {
+  max-width: 80%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  font-weight: 700;
+}
+
+#footerNav ul {
+  list-style: none;
+}
+
+#footerNav ul li {
+  margin-top: 20px;
+}
+
+#footerNav ul li :nth-child(1) {
+  margin-top: 0;
+}
+
+#copyrightInfo {
+  margin: 0;
+  text-align: center;
+  padding-bottom: 40px;
 }
 
 @media screen and (max-width: 380px) {
