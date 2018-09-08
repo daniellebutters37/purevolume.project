@@ -66,7 +66,7 @@ p {
   left: 50%;
   top: 50px;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   content: '';
   display: block;
   width: 65px;
@@ -104,7 +104,7 @@ p {
   padding: 11px 30px 10px 30px;
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   border-radius: 20px;
   text-transform: uppercase;
   font-weight: 700;
@@ -171,7 +171,7 @@ p {
   height: 2.5px;
   width: 16px;
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
   background-color: #5FC6C9;
   -webkit-transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
   transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
@@ -213,7 +213,7 @@ p {
   height: 2.5px;
   width: 15px;
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
   background-color: #5FC6C9;
   -webkit-transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
   transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
@@ -224,7 +224,7 @@ p {
 #mainHeader .search-open .searchButton div:nth-child(1) {
   top: 25px;
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-          transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 #mainHeader .search-open .searchButton div:nth-child(2) {
@@ -235,7 +235,7 @@ p {
   width: 30px;
   opacity: 0;
   -webkit-transform: translate(-50%, -50%) rotate(0deg);
-          transform: translate(-50%, -50%) rotate(0deg);
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 #subHeader {
@@ -248,30 +248,44 @@ p {
   -webkit-transition: top .5s;
   transition: top .5s;
   padding: 15px 0px;
-  -webkit-transition: height .3s;
-  transition: height .3s;
+  -webkit-transition: height .3s, top .8s;
+  transition: height .3s, top .8s;
 }
 
 #subHeader #leftScrollButton, #subHeader #rightScrollButton {
+  display: none;
   position: absolute;
   top: 50%;
+  height: 100%;
+  width: 80px;
   -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  background-color: #171522;
+  transform: translate(0, -50%);
+  background: transparent;
 }
 
 #subHeader #leftScrollButton i, #subHeader #rightScrollButton i {
-  height: 100%;
-  width: 50px;
   font-size: 30px;
   color: #ffffff;
-  margin: auto;
+  margin-left: -20px;
   z-index: 3;
   text-align: center;
 }
 
+#subHeader #leftScrollButton {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(65%, #171522), color-stop(95%, rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(90deg, #171522 65%, rgba(0, 0, 0, 0) 95%);
+  background-image: -o-linear-gradient(90deg, #171522 65%, rgba(0, 0, 0, 0) 95%);
+}
+
 #subHeader #rightScrollButton {
   right: 0;
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(65%, #171522), color-stop(95%, rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(-90deg, #171522 65%, rgba(0, 0, 0, 0) 95%);
+  background-image: -o-linear-gradient(-90deg, #171522 65%, rgba(0, 0, 0, 0) 95%);
+}
+
+#subHeader #rightScrollButton i {
+  margin-left: 20px;
 }
 
 #subHeader div {
@@ -284,6 +298,9 @@ p {
   margin: 0;
   width: 420px;
   padding: 0;
+  left: 0;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
 }
 
 #subHeader div ul li {

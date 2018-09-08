@@ -8,15 +8,33 @@ $whiteColour: #ffffff;
 $searchAnimationTime: .5s;
 $fonts:  Montserrat, Arial, sans-serif;
 
-$searchAnimationTime: .5s;
 // Mixins
 
-@mixin transform($property) {
+@mixin transform($property...) {
     -webkit-transform: $property;
+       -moz-transform: $property;
         -ms-transform: $property;
+         -o-transform: $property;
             transform: $property;
-  }
-  //@include transform(..whatever..);
+}
+
+@mixin transition($property...) {
+    -webkit-transition: $property;
+       -moz-transition: $property;
+        -ms-transition: $property;
+         -o-transition: $property;
+            transition: $property;
+}
+
+@mixin background-gradient($pro...) {
+    background-image: $pro;
+    background-image: -ms-+$pro;
+    background-image: -moz-+$pro;
+    background-image: -webkit-+$pro;
+    background-image: -o-+$pro;
+}
+
+//@include transform(whatever);
 
 // resets
 
@@ -88,7 +106,7 @@ p {
         position: absolute;
         left: 50%;
         top: 50px;
-        transform: translateX(-50%);
+        @include transform(translateX(-50%));
         content: '';
         display: block;
         width: 65px;
@@ -128,7 +146,7 @@ p {
     cursor: pointer;
     padding: 11px 30px 10px 30px;
     margin-left: 50%;
-    transform: translateX(-50%);
+    @include transform(translateX(-50%));
     border-radius: 20px;
     text-transform: uppercase;
     font-weight: 700;
@@ -187,7 +205,7 @@ p {
                 right: -16px;
                 height: 2.5px;
                 width: 16px;
-                transform: translate(-50%,-50%) rotate(45deg);
+                @include transform(translate(-50%,-50%) rotate(45deg));
                 background-color: $primaryColour;
                 transition: transform $searchAnimationTime , top $searchAnimationTime, right $searchAnimationTime;
             }
@@ -221,13 +239,13 @@ p {
                 right: -5px;
                 height: 2.5px;
                 width: 15px;
-                transform: translate(-50%,-50%) rotate(45deg);
+                @include transform(translate(-50%,-50%) rotate(45deg));
                 background-color: $primaryColour;
                 transition: transform $searchAnimationTime, top $searchAnimationTime, right $searchAnimationTime;
             }
             div:nth-child(1){
                 top: 25px;
-                transform: translate(-50%,-50%) rotate(-45deg);
+                @include transform(translate(-50%,-50%) rotate(-45deg));
             }
             div:nth-child(2){
                 position: absolute;
@@ -236,7 +254,7 @@ p {
                 height: 30px;
                 width: 30px;
                 opacity: 0;
-                transform: translate(-50%,-50%) rotate(0deg);
+                @include transform(translate(-50%,-50%) rotate(0deg));
             }
         }
     }
@@ -250,24 +268,32 @@ p {
     z-index: 4.5;
     transition: top .5s;
     padding: 15px 0px;
-    transition: height .3s;
+    transition: height .3s, top .8s;
     #leftScrollButton, #rightScrollButton{
+        display: none;
         position: absolute;
         top:50%;
-        transform: translate(0,-50%);
-        background-color: $secondaryColour;
+        height: 100%;
+        width: 80px;
+        @include transform(translate(0,-50%));
+        background: transparent;
         i{
-            height: 100%;
-            width: 50px;
             font-size: 30px;
             color: $whiteColour;
-            margin: auto;
+            margin-left: -20px;
             z-index: 3;
             text-align: center;
         }
     }
+    #leftScrollButton{
+        @include background-gradient(linear-gradient(90deg, $secondaryColour 65%, rgba(0,0,0,0) 95%));
+    }
     #rightScrollButton{
         right: 0;
+        @include background-gradient(linear-gradient(-90deg, $secondaryColour 65%, rgba(0,0,0,0) 95%));
+        i{
+            margin-left: 20px;
+        }
     }
     div{
         position: relative;
@@ -277,6 +303,8 @@ p {
             margin: 0;
             width: 420px;
             padding: 0;
+            left: 0;
+            @include transition(left .5s);
             li{
                 position: relative;
                 display: inline-block;

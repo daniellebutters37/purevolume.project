@@ -23,6 +23,8 @@ window.addEventListener('resize', function(){
     } else {
         logo.style.left = "20px";
     }
+    // For SubHeader
+    scrollArrowButtons();
 });
 
 sInput.addEventListener("focusout", closeSearchBox);
@@ -54,15 +56,63 @@ function closeSearchBox() {
 }
 // Sub Header
 
-currentScroll = 0;
+subHeader = document.querySelector('#subHeader');
+subHeaderMenu = document.querySelector('#subHeader ul');
+leftBtn = document.querySelector('#subHeader #leftScrollButton');
+rightBtn = document.querySelector('#subHeader #rightScrollButton');
 
-document.addEventListener("scroll", function(){
-    header = document.querySelector('#subHeader');
-    newScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    if(newScroll > currentScroll && newScroll > 200){
-        header.style.top = "-60px";
+
+window.addEventListener('load', scrollArrowButtons());
+
+function scrollArrowButtons(){
+
+    leftOffset = parseInt(subHeaderMenu.style.left);
+
+    if(subHeaderMenu.offsetWidth > subHeader.offsetWidth){
+        rightBtn.style.display = "block";
+        if(leftOffset >= 0){
+            leftBtn.style.display = "none";
+        }
+        if(leftOffset < 0){
+            leftBtn.style.display = "block";
+        }
+        if((subHeader.offsetWidth+Math.abs(leftOffset)) >= subHeaderMenu.offsetWidth){
+            rightBtn.style.display = "none";
+        }
     } else {
-        header.style.top = "60px";
+        leftBtn.style.display = "none";
+        rightBtn.style.display = "none";
+        subHeaderMenu.style.left = "0px";
+    }
+}
+
+leftBtn.addEventListener('click', function(){
+    console.log(subHeaderMenu.offsetLeft);
+    if((subHeaderMenu.offsetLeft+150) > 0){
+        subHeaderMenu.style.left = 0+"px";
+        subHeaderMenu.offsetLeft = 0;
+    } else {
+        subHeaderMenu.style.left = (subHeaderMenu.offsetLeft+150)+"px";
+        subHeaderMenu.offsetLeft = (subHeaderMenu.offsetLeft+150);
+    }
+    scrollArrowButtons();
+});
+
+rightBtn.addEventListener('click', function(){
+    subHeaderMenu.style.left = (subHeaderMenu.offsetLeft-150)+"px";
+    subHeaderMenu.offsetLeft = (subHeaderMenu.offsetLeft-150);
+    scrollArrowButtons();
+});
+
+// Scrolling visible function
+
+currentScroll = 0;
+document.addEventListener("scroll", function(){
+    newScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    if(newScroll > currentScroll && newScroll > 80){
+        subHeader.style.top = "-60px";
+    } else {
+        subHeader.style.top = "60px";
     }
     currentScroll = newScroll;
 });
