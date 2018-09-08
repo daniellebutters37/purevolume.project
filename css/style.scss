@@ -1,8 +1,11 @@
 // variables
 
-$searchAnimationTime: .5s;
 $primaryColour: #5FC6C9;
-$secondaryColour: grey; //should be changed once we definde colours we use
+$secondaryColour: #171522;
+$complementaryColour: #fff32b;
+$whiteColour: #ffffff;
+
+$searchAnimationTime: .5s;
 
 // resets
 
@@ -26,6 +29,66 @@ body{
     max-width: 1020px;
     width: 100%;
     margin: 0 auto;
+}
+
+// heading styles
+
+.leftHeading{
+    position: relative;
+    font-weight: 700;
+    size: 1.5em;
+    text-transform: uppercase;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 20px;
+    &::after{
+        position: absolute;
+        top: 40px;
+        content: ' ';
+        display: block;
+        width: 50px;
+        height: 3px; 
+    } 
+}
+
+.centerHeading {
+    position: relative;
+    font-weight: 700;
+    size: .75em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    &::after{
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        transform: translateX(-50%);
+        content: ' ';
+        display: block;
+        width: 65px;
+        height: 3px; 
+    } 
+}
+
+.invertColourTxt {
+    color: $whiteColour;
+    &::after{
+        background: $whiteColour;
+    }
+}
+
+.primaryColourTxt {
+    color: $primaryColour;
+    &::after{
+        background: $primaryColour;
+    }
+}
+
+// this class should be removed:
+.testSection{
+    height: 1000px;
+    background-color: antiquewhite;
 }
 
 // header
@@ -177,11 +240,17 @@ body{
 // MAIN CONTENT
 
 section{
-    background-color: antiquewhite;
     width: 100%;
-    height: 5000px;
 }
 
 // home section
 
 // category
+
+// FOOTER
+
+#mainFooter {
+    padding: 15px 0;
+    width: 100%;
+    background-color: $primaryColour;
+}
