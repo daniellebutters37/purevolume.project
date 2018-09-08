@@ -90,9 +90,7 @@ p {
 }
 
 .emailForm {
-  width: 90%;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 100%;
   font-weight: 700;
   padding: 12px 0 10px 3%;
   border-radius: 20px;
@@ -104,7 +102,9 @@ p {
 .invertBtn {
   cursor: pointer;
   padding: 11px 30px 10px 30px;
-  margin-left: 45%;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   border-radius: 20px;
   text-transform: uppercase;
   font-weight: 700;
@@ -115,102 +115,6 @@ p {
 .testSection {
   height: 1000px;
   background-color: antiquewhite;
-}
-
-.search-close {
-  position: relative;
-  width: 30px;
-  height: 40px;
-  margin-right: 30px;
-  cursor: pointer;
-  -webkit-transition: width 0.5s, height 0.5s;
-  transition: width 0.5s, height 0.5s;
-}
-
-.search-close .searchIn {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  border: 2.5px solid #333;
-  border-radius: 25px;
-  outline: 0;
-  font-size: 0;
-  padding: 0;
-  -webkit-transition: width 0.5s, height 0.5s, padding 0.5s;
-  transition: width 0.5s, height 0.5s, padding 0.5s;
-}
-
-.search-close .sbtn div {
-  position: absolute;
-  top: 30px;
-  right: -20px;
-  height: 2.5px;
-  width: 20px;
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
-  background-color: #333;
-  -webkit-transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
-  transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
-  transition: transform 0.5s, top 0.5s, right 0.5s;
-  transition: transform 0.5s, top 0.5s, right 0.5s, -webkit-transform 0.5s;
-}
-
-.search-close .sbtn div:nth-child(2) {
-  opacity: 0;
-}
-
-.search-open {
-  position: relative;
-  width: 200px;
-  height: 40px;
-  margin-right: 30px;
-  cursor: pointer;
-  -webkit-transition: width 0.5s, height 0.5s;
-  transition: width 0.5s, height 0.5s;
-}
-
-.search-open .searchIn {
-  cursor: auto;
-  width: 155px;
-  height: 20px;
-  border: 2.5px solid #333;
-  border-radius: 25px;
-  outline: 0;
-  font-size: 12px;
-  padding: 7.5px 45px 7.5px 15px;
-  -webkit-transition: width 0.5s, height 0.5s, padding 0.5s;
-  transition: width 0.5s, height 0.5s, padding 0.5s;
-}
-
-.search-open .sbtn div {
-  position: absolute;
-  top: 20px;
-  right: -5px;
-  height: 2.5px;
-  width: 20px;
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
-  background-color: #333;
-  -webkit-transition: top 0.5s, right 0.5s, -webkit-transform 0.5s linear 0.5s;
-  transition: top 0.5s, right 0.5s, -webkit-transform 0.5s linear 0.5s;
-  transition: transform 0.5s linear 0.5s, top 0.5s, right 0.5s;
-  transition: transform 0.5s linear 0.5s, top 0.5s, right 0.5s, -webkit-transform 0.5s linear 0.5s;
-}
-
-.search-open .sbtn div:nth-child(1) {
-  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-          transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.search-open .sbtn div:nth-child(2) {
-  position: absolute;
-  top: 20px;
-  right: -15px;
-  height: 30px;
-  width: 30px;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%) rotate(0deg);
-          transform: translate(-50%, -50%) rotate(0deg);
 }
 
 #mainHeader {
@@ -224,73 +128,214 @@ p {
   padding: 10px 0px;
 }
 
+#mainHeader .max-width {
+  position: relative;
+}
+
+#mainHeader #logo {
+  position: absolute;
+  height: 25px;
+  top: 7.5px;
+  left: 20px;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+}
+
+#mainHeader .search-close {
+  position: relative;
+  width: 25px;
+  height: 40px;
+  margin-right: 30px;
+  cursor: pointer;
+  -webkit-transition: width 0.5s, height 0.5s;
+  transition: width 0.5s, height 0.5s;
+}
+
+#mainHeader .search-close .searchIn {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid #5FC6C9;
+  border-radius: 25px;
+  outline: 0;
+  font-size: 0;
+  padding: 0;
+  -webkit-transition: width 0.5s, height 0.5s, padding 0.5s;
+  transition: width 0.5s, height 0.5s, padding 0.5s;
+}
+
+#mainHeader .search-close .searchButton div {
+  position: absolute;
+  top: 28px;
+  right: -16px;
+  height: 2.5px;
+  width: 16px;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #5FC6C9;
+  -webkit-transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
+  transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s, top 0.5s, right 0.5s;
+  transition: transform 0.5s, top 0.5s, right 0.5s, -webkit-transform 0.5s;
+}
+
+#mainHeader .search-close .searchButton div:nth-child(2) {
+  opacity: 0;
+}
+
+#mainHeader .search-open {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  margin-right: 30px;
+  cursor: pointer;
+  -webkit-transition: width 0.5s, height 0.5s;
+  transition: width 0.5s, height 0.5s;
+}
+
+#mainHeader .search-open .searchIn {
+  cursor: auto;
+  width: 155px;
+  height: 20px;
+  border: 2.5px solid #5FC6C9;
+  border-radius: 25px;
+  outline: 0;
+  font-size: 12px;
+  padding: 7.5px 45px 7.5px 15px;
+  -webkit-transition: width 0.5s, height 0.5s, padding 0.5s;
+  transition: width 0.5s, height 0.5s, padding 0.5s;
+}
+
+#mainHeader .search-open .searchButton div {
+  position: absolute;
+  top: 15px;
+  right: -5px;
+  height: 2.5px;
+  width: 15px;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #5FC6C9;
+  -webkit-transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
+  transition: top 0.5s, right 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s, top 0.5s, right 0.5s;
+  transition: transform 0.5s, top 0.5s, right 0.5s, -webkit-transform 0.5s;
+}
+
+#mainHeader .search-open .searchButton div:nth-child(1) {
+  top: 25px;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#mainHeader .search-open .searchButton div:nth-child(2) {
+  position: absolute;
+  top: 20px;
+  right: -15px;
+  height: 30px;
+  width: 30px;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+          transform: translate(-50%, -50%) rotate(0deg);
+}
+
 #subHeader {
   position: fixed;
   top: 60px;
   width: 100%;
-  background-color: #ffffff;
+  height: 20px;
+  background-color: #171522;
   z-index: 4.5;
   -webkit-transition: top .5s;
   transition: top .5s;
-  padding: 20px 0px;
+  padding: 15px 0px;
+  -webkit-transition: height .3s;
+  transition: height .3s;
 }
 
-#subHeader ul {
+#subHeader #leftScrollButton, #subHeader #rightScrollButton {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  background-color: #171522;
+}
+
+#subHeader #leftScrollButton i, #subHeader #rightScrollButton i {
+  height: 100%;
+  width: 50px;
+  font-size: 30px;
+  color: #ffffff;
+  margin: auto;
+  z-index: 3;
+  text-align: center;
+}
+
+#subHeader #rightScrollButton {
+  right: 0;
+}
+
+#subHeader div {
+  position: relative;
+}
+
+#subHeader div ul {
+  position: absolute;
   list-style: none;
+  margin: 0;
+  width: 420px;
+  padding: 0;
 }
 
-#subHeader ul li {
+#subHeader div ul li {
   position: relative;
   display: inline-block;
-  margin-right: 20px;
+  margin-left: 20px;
+  font-weight: 700;
   cursor: pointer;
+  color: #5FC6C9;
 }
 
-#subHeader ul li::after {
+#subHeader div ul li::after {
   margin-top: 7px;
+  height: 3px;
   content: '';
   display: block;
   width: 0;
-  height: 3px;
-  background: #171522;
+  background: #fff32b;
   -webkit-transition: width .3s;
   transition: width .3s;
-  opacity: 0.5;
 }
 
-#subHeader ul li:hover::after {
+#subHeader div ul li:hover::after {
   width: 100%;
   -webkit-transition: width .3s;
   transition: width .3s;
 }
 
-#subHeader ul li::before {
+#subHeader div ul li::before {
   content: '';
   display: block;
   width: 0;
   height: 3px;
-  background: #171522;
+  background: #fff32b;
   -webkit-transition: width .3s;
   transition: width .3s;
-  opacity: 0.5;
   position: absolute;
   top: 115%;
 }
 
-#subHeader ul li:hover::before {
+#subHeader div ul li:hover::before {
   width: 40%;
   -webkit-transition: width .3s;
   transition: width .3s;
 }
 
-#subHeader .active {
-  font-weight: 700;
-  color: #171522;
+#subHeader div .active {
+  color: #ffffff;
 }
 
-#logo {
-  height: 40px;
-  margin-left: 20px;
+#subHeader:hover {
+  height: 30px;
 }
 
 section {
@@ -309,6 +354,16 @@ section {
 }
 
 #signUp {
-  padding: 15px 15px;
+  max-width: 90%;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: 380px) {
+  #mainHeader #logo {
+    height: 20px;
+    top: 10px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

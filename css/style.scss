@@ -6,13 +6,24 @@ $complementaryColour: #fff32b;
 $whiteColour: #ffffff;
 
 $searchAnimationTime: .5s;
+$fonts:  Montserrat, Arial, sans-serif;
+
+$searchAnimationTime: .5s;
+// Mixins
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+        -ms-transform: $property;
+            transform: $property;
+  }
+  //@include transform(..whatever..);
 
 // resets
 
 body{
     padding: 0;
     margin: 0;
-    font-family: Montserrat, Arial, sans-serif;
+    font-family: $fonts;
 }
 
 input{
@@ -102,9 +113,7 @@ p {
 //input
 
 .emailForm{
-    width: 90%;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 100%;
     font-weight: 700;
     padding: 12px 0 10px 3%;
     border-radius: 20px;
@@ -118,7 +127,8 @@ p {
 .invertBtn{
     cursor: pointer;
     padding: 11px 30px 10px 30px;
-    margin-left: 45%;
+    margin-left: 50%;
+    transform: translateX(-50%);
     border-radius: 20px;
     text-transform: uppercase;
     font-weight: 700;
@@ -134,84 +144,6 @@ p {
 
 // header
 
-.search-close{
-    position: relative;
-    width: 30px;
-    height: 40px;
-    margin-right: 30px;
-    cursor: pointer;
-    transition: width $searchAnimationTime, height $searchAnimationTime;
-    .searchIn{
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        border: 2.5px solid #333;
-        border-radius: 25px;
-        outline: 0;
-        font-size: 0;
-        padding: 0;
-        transition: width $searchAnimationTime, height $searchAnimationTime, padding $searchAnimationTime;
-    }
-    .sbtn{
-        div{
-            position: absolute;
-            top: 30px;
-            right: -20px;
-            height: 2.5px;
-            width: 20px;
-            transform: translate(-50%,-50%) rotate(45deg);
-            background-color: #333;
-            transition: transform $searchAnimationTime , top $searchAnimationTime, right $searchAnimationTime;
-        }
-        div:nth-child(2){
-            opacity: 0;
-        }
-    }
-}
-.search-open{
-    position: relative;
-    width: 200px;
-    height: 40px;
-    margin-right: 30px;
-    cursor: pointer;
-    transition: width $searchAnimationTime, height $searchAnimationTime;
-    .searchIn{
-        cursor: auto;
-        width: 155px;
-        height: 20px;
-        border: 2.5px solid #333;
-        border-radius: 25px;
-        outline: 0;
-        font-size: 12px;
-        padding: 7.5px 45px 7.5px 15px;
-        transition: width $searchAnimationTime, height $searchAnimationTime, padding $searchAnimationTime;
-    }
-    .sbtn{
-        div{
-            position: absolute;
-            top: 20px;
-            right: -5px;
-            height: 2.5px;
-            width: 20px;
-            transform: translate(-50%,-50%) rotate(45deg);
-            background-color: #333;
-            transition: transform $searchAnimationTime linear $searchAnimationTime, top $searchAnimationTime, right $searchAnimationTime;
-        }
-        div:nth-child(1){
-            transform: translate(-50%,-50%) rotate(-45deg);
-        }
-        div:nth-child(2){
-            position: absolute;
-            top: 20px;
-            right: -15px;
-            height: 30px;
-            width: 30px;
-            opacity: 0;
-            transform: translate(-50%,-50%) rotate(0deg);
-        }
-    }
-}
-
 #mainHeader{
     position: fixed;
     top:0;
@@ -220,62 +152,174 @@ p {
     z-index: 5;
     transition: top .5s;
     padding: 10px 0px;
+    .max-width{
+        position: relative;
+    }
+    #logo{
+        position: absolute;
+        height: 25px;
+        top:7.5px;
+        left: 20px;
+        transition: left $searchAnimationTime
+    }
+    .search-close{
+        position: relative;
+        width: 25px;
+        height: 40px;
+        margin-right: 30px;
+        cursor: pointer;
+        transition: width $searchAnimationTime, height $searchAnimationTime;
+        .searchIn{
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            border: 2.5px solid $primaryColour;
+            border-radius: 25px;
+            outline: 0;
+            font-size: 0;
+            padding: 0;
+            transition: width $searchAnimationTime, height $searchAnimationTime, padding $searchAnimationTime;
+        }
+        .searchButton{
+            div{
+                position: absolute;
+                top: 28px;
+                right: -16px;
+                height: 2.5px;
+                width: 16px;
+                transform: translate(-50%,-50%) rotate(45deg);
+                background-color: $primaryColour;
+                transition: transform $searchAnimationTime , top $searchAnimationTime, right $searchAnimationTime;
+            }
+            div:nth-child(2){
+                opacity: 0;
+            }
+        }
+    }
+    .search-open{
+        position: relative;
+        width: 200px;
+        height: 40px;
+        margin-right: 30px;
+        cursor: pointer;
+        transition: width $searchAnimationTime, height $searchAnimationTime;
+        .searchIn{
+            cursor: auto;
+            width: 155px;
+            height: 20px;
+            border: 2.5px solid $primaryColour;
+            border-radius: 25px;
+            outline: 0;
+            font-size: 12px;
+            padding: 7.5px 45px 7.5px 15px;
+            transition: width $searchAnimationTime, height $searchAnimationTime, padding $searchAnimationTime;
+        }
+        .searchButton{
+            div{
+                position: absolute;
+                top: 15px;
+                right: -5px;
+                height: 2.5px;
+                width: 15px;
+                transform: translate(-50%,-50%) rotate(45deg);
+                background-color: $primaryColour;
+                transition: transform $searchAnimationTime, top $searchAnimationTime, right $searchAnimationTime;
+            }
+            div:nth-child(1){
+                top: 25px;
+                transform: translate(-50%,-50%) rotate(-45deg);
+            }
+            div:nth-child(2){
+                position: absolute;
+                top: 20px;
+                right: -15px;
+                height: 30px;
+                width: 30px;
+                opacity: 0;
+                transform: translate(-50%,-50%) rotate(0deg);
+            }
+        }
+    }
 }
 #subHeader{
     position: fixed;
     top:60px;
     width: 100%;
-    background-color: #ffffff;
+    height: 20px;
+    background-color: $secondaryColour;
     z-index: 4.5;
     transition: top .5s;
-    padding: 20px 0px;
-    ul{
-        list-style: none;
-        li{
-            position: relative;
-            display: inline-block;
-            margin-right: 20px;
-            cursor: pointer;
-            &::after{
-                margin-top: 7px;
-                content: '';
-                display: block;
-                width: 0;
-                height: 3px;
-                background: $secondaryColour; 
-                transition: width .3s;
-                opacity: 0.5;
-            }
-            &:hover::after{
-                width: 100%;
-                transition: width .3s;
-            }
-            &::before{
-                content: '';
-                display: block;
-                width: 0;
-                height: 3px;
-                background: $secondaryColour; 
-                transition: width .3s;
-                opacity: 0.5;
-                position: absolute;
-                top: 115%;
-            }
-            &:hover::before{
-                width: 40%;
-                transition: width .3s;
-            }
+    padding: 15px 0px;
+    transition: height .3s;
+    #leftScrollButton, #rightScrollButton{
+        position: absolute;
+        top:50%;
+        transform: translate(0,-50%);
+        background-color: $secondaryColour;
+        i{
+            height: 100%;
+            width: 50px;
+            font-size: 30px;
+            color: $whiteColour;
+            margin: auto;
+            z-index: 3;
+            text-align: center;
         }
     }
-    .active{
-        font-weight: 700;
-        color: $secondaryColour;
+    #rightScrollButton{
+        right: 0;
     }
-}
-
-#logo{
-    height: 40px;
-    margin-left: 20px;
+    div{
+        position: relative;
+        ul{
+            position: absolute;
+            list-style: none;
+            margin: 0;
+            width: 420px;
+            padding: 0;
+            li{
+                position: relative;
+                display: inline-block;
+                margin-left: 20px;
+                font-weight: 700;
+                cursor: pointer;
+                color: $primaryColour;
+                &::after{
+                    margin-top: 7px;
+                    height: 3px;
+                    content: '';
+                    display: block;
+                    width: 0;
+                    background: $complementaryColour; 
+                    transition: width .3s;
+                }
+                &:hover::after{
+                    width: 100%;
+                    transition: width .3s;
+                }
+                &::before{
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 3px;
+                    background: $complementaryColour; 
+                    transition: width .3s;
+                    position: absolute;
+                    top: 115%;
+                }
+                &:hover::before{
+                    width: 40%;
+                    transition: width .3s;
+                }
+            }
+        }
+        .active{
+            color: $whiteColour;
+        }
+    }
+    &:hover{
+        height: 30px;
+    }
 }
 
 // MAIN CONTENT
@@ -301,5 +345,25 @@ section{
 }
 
 #signUp {
-    padding: 15px 15px;
+    max-width: 90%;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+// ::: Mobile :::
+
+@media screen and (max-width: 640px){
+}
+
+// ::: Small Mobile :::
+
+@media screen and (max-width: 380px){
+    // Header
+
+    #mainHeader{
+        #logo{
+            height: 20px;
+            top:10px;
+        }
+    }
 }
