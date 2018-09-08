@@ -54,6 +54,18 @@ button{
     outline: 0;
 }
 
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+
+a{
+    color: inherit;
+}
+
+ul{
+    margin: 0;
+}
+
 // STYLES
 
 .hidden{
@@ -72,6 +84,15 @@ button{
 
 p {
     margin: 0;
+}
+
+.centerTxt{
+    text-align: center;
+}
+
+h2,h3{
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 // heading styles
@@ -152,6 +173,7 @@ p {
     font-weight: 700;
     color: $secondaryColour;
     background-color: $complementaryColour;
+    margin-bottom: 20px;
 }
 
 // this class should be removed:
@@ -160,7 +182,17 @@ p {
     background-color: antiquewhite;
 }
 
-// header
+// social media
+
+.socialMedia{
+    text-align: center;
+    font-size: 2em;
+    .fa{
+        cursor: pointer;
+    }
+}
+
+// HEADER
 
 #mainHeader{
     position: fixed;
@@ -378,6 +410,29 @@ section{
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+#footerNav{
+    max-width: 80%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    font-weight: 700;
+    ul {
+        list-style: none;
+        li{
+            margin-top: 20px;
+            :nth-child(1){
+                margin-top: 0;
+            } 
+        }
+    }
+}
+
+#copyrightInfo{
+    margin: 0;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
 // ::: Mobile :::
 
 @media screen and (max-width: 640px){
