@@ -1,6 +1,7 @@
 // variables
 
 $searchAnimationTime: .5s;
+$primaryColour: #5FC6C9;
 $secondaryColour: grey; //should be changed once we definde colours we use
 
 // resets
@@ -8,6 +9,7 @@ $secondaryColour: grey; //should be changed once we definde colours we use
 body{
     padding: 0;
     margin: 0;
+    font-family: Montserrat, Arial, sans-serif;
 }
 
 // STYLES
@@ -160,6 +162,10 @@ body{
                 transition: width .3s;
             }
         }
+    }
+    .active{
+        font-weight: 700;
+        color: $secondaryColour;
     }
 }
 

@@ -1,13 +1,8 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
 }
-
-h2 { 
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  font-weight: bold;
- }
 
 .hidden {
   display: none;
@@ -187,6 +182,11 @@ h2 {
   width: 40%;
   -webkit-transition: width .3s;
   transition: width .3s;
+}
+
+#subHeader .active {
+  font-weight: 700;
+  color: grey;
 }
 
 #logo {
