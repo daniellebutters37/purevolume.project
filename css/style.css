@@ -4,6 +4,15 @@ body {
   font-family: Montserrat, Arial, sans-serif;
 }
 
+input {
+  border: none;
+}
+
+button {
+  border: none;
+  outline: 0;
+}
+
 .hidden {
   display: none;
 }
@@ -16,6 +25,10 @@ body {
   max-width: 1020px;
   width: 100%;
   margin: 0 auto;
+}
+
+p {
+  margin: 0;
 }
 
 .leftHeading {
@@ -73,6 +86,28 @@ body {
 
 .primaryColourTxt::after {
   background: #5FC6C9;
+}
+
+.emailForm {
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: 700;
+  padding: 10px 15px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  color: grey;
+  margin-bottom: 20px;
+}
+
+.invertBtn {
+  padding: 10px 40px;
+  border-radius: 20px;
+  -webkit-transform: translateX(-25%);
+          transform: translateX(-25%);
+  margin-left: 50%;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .testSection {
@@ -261,8 +296,17 @@ section {
 }
 
 #mainFooter {
-  padding: 15px 0;
   width: 100%;
   background-color: #5FC6C9;
+  color: #ffffff;
+}
+
+#mainFooter p {
+  margin-top: 60px;
+  margin-bottom: 15px;
+}
+
+#signUp {
+  padding: 15px 15px;
 }
 /*# sourceMappingURL=style.css.map */
