@@ -394,42 +394,49 @@ section {
   margin-bottom: 15px;
 }
 
+#mainFooter .max-width {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #signUp {
-  max-width: 90%;
-  margin: 0 auto;
+  max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
+  margin: 0 auto;
 }
 
 .roundedIcon {
+  margin-top: 30px;
   background-color: #ffffff;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  padding: 10px 3px 0px 3px;
   margin-bottom: 15px;
   display: inline-block;
 }
 
 .roundedIcon .fa {
+  font-size: 2em;
+  cursor: pointer;
   color: #5FC6C9;
   text-align: center;
+  margin-top: 8px;
 }
 
 #footerSocialMedia {
-  margin-top: 30px;
+  max-width: 30%;
+  padding-top: 40px;
+  padding-bottom: 15px;
   text-align: center;
-  font-size: 2em;
-}
-
-#footerSocialMedia .fa {
-  cursor: pointer;
 }
 
 #footerNav {
-  max-width: 80%;
+  max-width: 30%;
+  padding-top: 40px;
+  padding-bottom: 15px;
   margin: 0 auto;
-  padding-bottom: 30px;
   font-weight: 700;
 }
 
@@ -440,6 +447,7 @@ section {
 
 #footerNav ul li {
   margin-top: 20px;
+  cursor: pointer;
 }
 
 #footerNav ul li :nth-child(1) {
@@ -447,9 +455,28 @@ section {
 }
 
 #copyrightInfo {
+  width: 100%;
   margin: 0;
   text-align: center;
   padding-bottom: 40px;
+}
+
+#copyrightInfo p {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 640px) {
+  #signUp, #footerSocialMedia, #footerNav {
+    max-width: 80%;
+    margin-left: 10%;
+    padding-top: 20px;
+  }
+  #signUp {
+    padding-top: 40px;
+  }
+  #mainFooter .max-width {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 380px) {
