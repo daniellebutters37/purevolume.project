@@ -446,6 +446,9 @@ h2, h3 {
 }
 
 #signUp {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
@@ -471,6 +474,9 @@ h2, h3 {
 }
 
 #footerSocialMedia {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
@@ -478,6 +484,9 @@ h2, h3 {
 }
 
 #footerNav {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
