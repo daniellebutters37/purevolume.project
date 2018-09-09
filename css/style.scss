@@ -42,6 +42,7 @@ body{
     padding: 0;
     margin: 0;
     font-family: $fonts;
+    overflow-x: hidden;
 }
 
 input{
@@ -60,6 +61,7 @@ h1,h2,h3,h4,h5,h6{
 
 a{
     color: inherit;
+    text-decoration: none;
 }
 
 ul{
@@ -374,12 +376,38 @@ h2,h3{
 
 // MAIN CONTENT
 
-section{
+#mainContent{
     width: 100%;
+    margin-top: 110px;
+    min-height: 500px;
+    .articleThumbs{
+        width: max-content;
+        z-index: 1;
+        a{
+            position: relative;
+            margin-right: 2px;
+            img{
+               height: 120px;
+               width: auto;
+            }
+            :hover::after{
+                content: " ";
+                width: 100%;
+                height: 100%;
+                background: $complementaryColour;
+                opacity: .5;
+            }   
+        }
+    }
 }
 
 // home section
+.homeSection{
 
+}
+.categorySection{
+
+}
 // category
 
 // FOOTER
