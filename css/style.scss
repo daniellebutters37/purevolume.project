@@ -106,6 +106,7 @@ h2,h3{
     text-transform: uppercase;
     text-align: left;
     margin: 0;
+    margin-top: 15px;
     margin-bottom: 20px;
     &::after{
         position: absolute;
@@ -182,6 +183,16 @@ h2,h3{
 .testSection{
     height: 1000px;
     background-color: antiquewhite;
+}
+
+.addSkyscraper{
+    margin-left: 5px;
+}
+
+.skyscraperContent{
+    max-width: 120px;
+    height: 600px;
+    background-color: grey;
 }
 
 // HEADER
@@ -404,12 +415,21 @@ h2,h3{
 
 // home section
 .homeSection{
-
 }
-.categorySection{
 
-}
 // category
+
+.categorySection{
+}
+
+.categoryContent{
+}
+
+#accessories{
+    margin-top: 35px;
+}
+
+// POP CULTURE
 
 // FOOTER
 

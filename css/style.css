@@ -62,6 +62,7 @@ h2, h3 {
   text-transform: uppercase;
   text-align: left;
   margin: 0;
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 
@@ -139,6 +140,16 @@ h2, h3 {
 .testSection {
   height: 1000px;
   background-color: antiquewhite;
+}
+
+.addSkyscraper {
+  margin-left: 5px;
+}
+
+.skyscraperContent {
+  max-width: 120px;
+  height: 600px;
+  background-color: grey;
 }
 
 #mainHeader {
@@ -411,6 +422,10 @@ h2, h3 {
   height: 100%;
   background: #fff32b;
   opacity: .5;
+}
+
+#accessories {
+  margin-top: 35px;
 }
 
 #mainFooter {
