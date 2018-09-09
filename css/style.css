@@ -139,15 +139,6 @@ h2, h3 {
   background-color: antiquewhite;
 }
 
-.socialMedia {
-  text-align: center;
-  font-size: 2em;
-}
-
-.socialMedia .fa {
-  cursor: pointer;
-}
-
 #mainHeader {
   position: fixed;
   top: 0;
@@ -404,8 +395,33 @@ section {
 #signUp {
   max-width: 90%;
   margin: 0 auto;
-  padding-top: 15px;
+  padding-top: 40px;
   padding-bottom: 15px;
+}
+
+.roundedIcon {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px 3px 0px 3px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.roundedIcon .fa {
+  color: #5FC6C9;
+  text-align: center;
+}
+
+#footerSocialMedia {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 2em;
+}
+
+#footerSocialMedia .fa {
+  cursor: pointer;
 }
 
 #footerNav {
@@ -416,6 +432,7 @@ section {
 }
 
 #footerNav ul {
+  margin-top: 60px;
   list-style: none;
 }
 
