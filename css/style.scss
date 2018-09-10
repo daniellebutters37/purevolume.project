@@ -767,6 +767,14 @@ h2,h3{
     .onlyInSmall{
         display: block;
     }
+    .homeSection{
+        .max-width{
+            display: block;
+            .trending{
+                width: 100%;
+            }
+        }
+    }
 }
 
 // ::: Small Mobile :::
