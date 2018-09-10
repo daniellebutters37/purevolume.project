@@ -54,7 +54,8 @@ function closeSearchBox() {
         sBox.addEventListener('click', openSearchBox);
     }, 100);
 }
-// Sub Header
+
+// ::: Sub Header :::
 
 subHeader = document.querySelector('#subHeader');
 subHeaderMenu = document.querySelector('#subHeader ul');
