@@ -40,6 +40,10 @@ ul {
   float: right;
 }
 
+.clear-fix {
+  clear: both;
+}
+
 .max-width {
   max-width: 1020px;
   width: 100%;
@@ -410,6 +414,9 @@ h2, h3 {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  left: 0;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
 }
 
 #mainContent .storyThumbsLine .articleThumbs .storyItem {
@@ -457,6 +464,7 @@ h2, h3 {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   cursor: pointer;
+  display: none;
 }
 
 #mainContent .storyThumbsLine nav button i {
@@ -569,6 +577,8 @@ h2, h3 {
   color: #171522;
   font-size: 14px;
   padding: 10px 18px;
+  -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .homeSection .max-width .specialTrending {
@@ -638,6 +648,10 @@ h2, h3 {
   padding: .5em;
 }
 
+.homeSection .max-width .advertisements div {
+  margin: 0 auto;
+}
+
 .categoryRow {
   width: 100%;
   position: relative;
@@ -665,11 +679,14 @@ h2, h3 {
 }
 
 .categoryRow .blogsContent .blogItem p {
-  width: 100%;
+  width: 90%;
   border-left: 5px solid #fff32b;
   padding: 10px;
   font-size: 12px;
   font-weight: 700;
+  background-color: #ffffff;
+  -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .categoryRow button {
@@ -826,12 +843,46 @@ h2, h3 {
   .homeSection .max-width .trending {
     width: 100%;
   }
+  .homeSection .max-width .trending .bigTrending .info p {
+    font-size: 16px;
+  }
+  .homeSection .max-width .specialTrending {
+    width: 100%;
+    padding: 0;
+    height: auto;
+  }
+  .homeSection .max-width .specialTrending .video {
+    width: 100%;
+    height: auto;
+  }
+  .categoryRow .blogsContent {
+    display: block;
+  }
+  .categoryRow .blogsContent .blogItem {
+    width: 90%;
+    position: relative;
+  }
+  .categoryRow .blogsContent .blogItem img {
+    width: 40%;
+  }
+  .categoryRow .blogsContent .blogItem p {
+    position: absolute;
+    width: 60%;
+    left: 30%;
+    top: 20px;
+    font-size: 18px;
+    font-weight: 200px;
+    padding: 15px;
+  }
 }
 
 @media screen and (max-width: 380px) {
   #mainHeader #logo {
     height: 20px;
     top: 10px;
+  }
+  .categoryRow .blogsContent .blogItem p {
+    font-size: 14px;
   }
 }
 /*# sourceMappingURL=style.css.map */
