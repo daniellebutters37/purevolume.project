@@ -45,7 +45,7 @@ ul {
 }
 
 .max-width {
-  max-width: 1020px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
@@ -61,6 +61,10 @@ p {
 h2, h3 {
   text-transform: uppercase;
   margin-bottom: 20px;
+}
+
+.articleHeading {
+  margin-top: 20px;
 }
 
 .leftHeading {
@@ -149,9 +153,41 @@ h2, h3 {
   color: #ffffff;
 }
 
-.testSection {
-  height: 1000px;
-  background-color: antiquewhite;
+.relatedArticles {
+  margin-top: 40px;
+}
+
+.relatedArticles a {
+  font-weight: 700;
+  color: #5FC6C9;
+}
+
+.categoryNav {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.5em;
+}
+
+.categoryNav a {
+  padding: 5px 0;
+}
+
+.categoryNav .fa {
+  color: #5FC6C9;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.photoCredit {
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #mainHeader {
@@ -407,6 +443,7 @@ h2, h3 {
 #mainContent .storyThumbsLine {
   position: relative;
   height: 130px;
+  margin-bottom: 40px;
 }
 
 #mainContent .storyThumbsLine .articleThumbs {
@@ -791,6 +828,10 @@ h2, h3 {
   width: 100%;
 }
 
+.categorySection .max-width .categoryContent .bigTrending {
+  margin-top: 40px;
+}
+
 .categorySection .max-width .advertisements {
   padding: 2em;
 }
@@ -809,6 +850,42 @@ h2, h3 {
   background-color: #EEE;
   margin-bottom: 2em;
   margin: 2em auto;
+}
+
+#articleSocialMedia .socMediaIcon {
+  padding: 7px 40px;
+  border-radius: 20px;
+  background-color: #5FC6C9;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+#articleSocialMedia .socMediaIcon .fa {
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
+.sideBySide {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.sideBySide .row {
+  width: 100%;
+}
+
+#mainPhoto {
+  width: 100%;
+}
+
+.articleBody {
+  margin-top: 20px;
 }
 
 #mainFooter {

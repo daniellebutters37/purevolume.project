@@ -109,7 +109,7 @@ ul{
     clear: both;
 }
 .max-width{
-    max-width: 1020px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
@@ -128,6 +128,10 @@ h2,h3{
 }
 
 // heading styles
+
+.articleHeading{
+    margin-top: 20px;
+}
 
 .leftHeading{
     position: relative;
@@ -212,10 +216,34 @@ h2,h3{
     color: $whiteColour;
 }
 
-// this class should be removed:
-.testSection{
-    height: 1000px;
-    background-color: antiquewhite;
+.relatedArticles{
+    margin-top: 40px;
+    a{
+        font-weight: 700;
+        color: $primaryColour;
+    }
+}
+
+.categoryNav{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+    a{
+        padding: 5px 0;
+    }
+    .fa{
+        color: $primaryColour;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+.photoCredit{
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
 }
 
 // HEADER
@@ -420,6 +448,7 @@ h2,h3{
     .storyThumbsLine{
         position: relative;
         height: 130px;
+        margin-bottom: 40px;
         .articleThumbs{
             position: absolute;
             width: max-content;
@@ -656,6 +685,7 @@ h2,h3{
         }
     }
 }
+
 .categoryRow{
     width: 100%;
     position: relative;
@@ -710,7 +740,9 @@ h2,h3{
         margin-top: 20px;
     }
 }
+
 // category
+
 .categorySection{
     .max-width{
         display: flex;
@@ -721,6 +753,9 @@ h2,h3{
             position: relative;
             img{
                 width: 100%;
+            }
+            .bigTrending{
+                margin-top: 40px;
             }
         }
         .advertisements{
@@ -744,6 +779,39 @@ h2,h3{
     background-color: #EEE;
     margin-bottom: 2em;
     margin: 2em auto;
+}
+
+// ARTICLE
+
+#articleSocialMedia{
+    .socMediaIcon{
+        padding: 7px 40px;
+        border-radius: 20px;
+        background-color: $primaryColour;
+        margin-top: 20px;
+        display: inline-block;
+        .fa{
+            color: $whiteColour;
+            font-size: 1.5em;
+        }
+    }
+}
+
+.sideBySide{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .row{
+        width: 100%;
+    }
+}
+
+#mainPhoto{
+    width: 100%;
+}
+
+.articleBody{
+    margin-top: 20px;
 }
 
 // FOOTER
