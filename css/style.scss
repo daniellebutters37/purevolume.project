@@ -212,10 +212,28 @@ h2,h3{
     color: $whiteColour;
 }
 
-// this class should be removed:
-.testSection{
-    height: 1000px;
-    background-color: antiquewhite;
+.relatedArticles{
+    margin-top: 40px;
+    a{
+        font-weight: 700;
+        color: $primaryColour;
+    }
+}
+
+.categoryNav{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+    a{
+        padding: 5px 0;
+    }
+    .fa{
+        color: $primaryColour;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
 }
 
 // HEADER
@@ -695,7 +713,9 @@ h2,h3{
         margin-top: 20px;
     }
 }
+
 // category
+
 .categorySection{
     .max-width{
         display: flex;
@@ -706,6 +726,9 @@ h2,h3{
             position: relative;
             img{
                 width: 100%;
+            }
+            .bigTrending{
+                margin-top: 40px;
             }
         }
         .advertisements{
