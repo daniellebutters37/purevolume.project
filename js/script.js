@@ -25,6 +25,7 @@ window.addEventListener('resize', function(){
     }
     // For SubHeader
     scrollArrowButtons();
+    storyScrollButtons();
 });
 
 sInput.addEventListener("focusout", closeSearchBox);
@@ -63,11 +64,15 @@ leftBtn = document.querySelector('#subHeader #leftScrollButton');
 rightBtn = document.querySelector('#subHeader #rightScrollButton');
 
 
-window.addEventListener('load', scrollArrowButtons());
+window.addEventListener('load', function(){
+    scrollArrowButtons();
+    storyScrollButtons();
+});
 
 function scrollArrowButtons(){
 
     leftOffset = parseInt(subHeaderMenu.style.left);
+    console.log(leftOffset);
 
     if(subHeaderMenu.offsetWidth > subHeader.offsetWidth){
         rightBtn.style.display = "block";
@@ -116,4 +121,48 @@ document.addEventListener("scroll", function(){
         subHeader.style.top = "60px";
     }
     currentScroll = newScroll;
+});
+
+// Main Content
+storyThumbs = document.querySelector('#storyThumbsLine');
+storyThumbsRow = document.querySelector('#storyThumbsLine > div');
+storyThumbsLeftBtn = document.querySelector('#storyThumbsLine #leftStoryScrollButton');
+storyThumbsRightBtn = document.querySelector('#storyThumbsLine #rightStoryScrollButton');
+
+
+function storyScrollButtons(){
+    
+    offSet = storyThumbsRow.style.left;
+    if(storyThumbsRow.offsetWidth > storyThumbs.offsetWidth){
+        console.log(offSet);
+        storyThumbsRightBtn.style.display = "block";
+        if(offSet >= 0){
+            storyThumbsLeftBtn.style.display = "none";
+        }
+        if(offSet < 0){
+            storyThumbsLeftBtn.style.display = "block";
+        }
+    } else {
+        storyThumbsLeftBtn.style.display = "none";
+        storyThumbsRightBtn.style.display = "none";
+        storyThumbsRow.style.left = "0px";
+    }
+}
+
+storyThumbsLeftBtn.addEventListener('click', function(){
+
+    if((storyThumbsRow.offsetLeft+150) > 0){
+        storyThumbsRow.style.left = 0+"px";
+        storyThumbsRow.offsetLeft = 0;
+    } else {
+        storyThumbsRow.style.left = (storyThumbsRow.offsetLeft+(storyThumbs.offsetWidth/2))+"px";
+        storyThumbsRow.offsetLeft = (storyThumbsRow.offsetLeft+(storyThumbs.offsetWidth/2));
+    }
+    scrollArrowButtons();
+});
+
+storyThumbsRightBtn.addEventListener('click', function(){
+    storyThumbsRow.style.left = (storyThumbsRow.offsetLeft-(storyThumbs.offsetWidth/2))+"px";
+    storyThumbsRow.offsetLeft = (storyThumbsRow.offsetLeft-(storyThumbs.offsetWidth/2));
+    scrollArrowButtons();
 });
