@@ -804,13 +804,6 @@ h2,h3{
             display: block;
             .trending{
                 width: 100%;
-                .bigTrending{
-                    .info{
-                        p{
-                            font-size: 16px;
-                        }
-                    }
-                }
             }
             .specialTrending{
                 width: 100%;
@@ -820,6 +813,13 @@ h2,h3{
                     width: 100%;
                     height: auto;
                 }
+            }
+        }
+    }
+    .bigTrending{
+        .info{
+            p{
+                font-size: 16px;
             }
         }
     }
