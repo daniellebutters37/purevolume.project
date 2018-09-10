@@ -492,70 +492,63 @@ h2,h3{
         margin-bottom: 20px;
         .trending{
             margin-top: 18px;
-            width: 65%;
+            width: 100%;
             position: relative;
-            .bigTrending{
-                position: relative;
-                height: max-content;
-                width: fit-content;
-                margin-bottom: 10px;
-                img{
-                    width: 100%;
-                }
-                .info{
-                    position: absolute;
-                    bottom: 40px;
-                    span{
-                        background-color: $complementaryColour;
-                        font-weight: 600;
-                        text-transform: lowercase;
-                        padding: 8px 22px;
-                    }
-                    p{
-                        background: transparentize($secondaryColour, .35);
-                        font-weight: 900;
-                        text-transform: uppercase;
-                        width: 70%;
-                        color: $primaryColour;
-                        font-size: 1.5em;
-                        padding:.5em; 
-                    }
-                }
-            }
+            display: flex;
+            flex-wrap: wrap;
+            height: max-content;
             .squareTrending{
                 position: relative;
-                width: 48%;
-                height: max-content;
-                margin-left: 2%;
-                float: left;
+                height: 0;
+                overflow: hidden;
+                padding-top: 31%;
+                margin-bottom: 10px;
+                width: calc(50% - 15px);
+                margin-right: 15px;
                 img{
+                    position: absolute;
                     width: 100%;
+                    top: 0;
                 }
                 .info{
                     position: absolute;
-                    bottom: 4px;
-                    text-align: right;
-                    span{
+                    bottom: 0px;
+                    .tag{
                         background-color: $complementaryColour;
                         font-weight: 600;
                         text-transform: lowercase;
                         padding: 4px 18px;
                         font-size: 12px;
+                        width: max-content;
+                        text-align: right;
+                        @include transition(width .5s);
                     }
                     p{
-                        float: right;
-                        text-align: left;
                         border-left: 5px solid $primaryColour;
-                        background: $whiteColour;
+                        background: transparentize($whiteColour, .2);
                         font-weight: 900;
                         text-transform: uppercase;
-                        width: 60%;
+                        width: calc(100% - 36px);
                         color: $secondaryColour;
                         font-size: 14px;
                         padding: 10px 18px;
-                        box-shadow: 10px 10px 20px rgba(0,0,0,.2); 
+                        box-shadow: 10px 10px 20px rgba(0,0,0,.25); 
+                        margin-top: 3px;
+                        height: max-content;
                     }
                 }
+                :hover{
+                    .info{
+                        .tag{
+                            width: 50%;
+                            @include transition(width .5s);
+                        }
+                    }
+                }
+            }
+            .squareTrending:nth-child(odd){
+                margin-right: 0;
+                width: 50%;
             }
             
         }
@@ -608,29 +601,71 @@ h2,h3{
             }
         }
         .advertisements{
-            padding: .5em;
+            padding: 18px;
             div{
                 margin: 0 auto;
             }
         }
     }
 }
+
+.bigTrending{
+    height: 0;
+    overflow: hidden;
+    padding-top: 35%;
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+    img{
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+    .info{
+        position: absolute;
+        bottom: 0px;
+        span{
+            background-color: $complementaryColour;
+            font-weight: 600;
+            text-transform: lowercase;
+            padding: 8px 22px;
+        }
+        p{
+            background: transparentize($secondaryColour, .35);
+            font-weight: 900;
+            text-transform: uppercase;
+            width: calc(100% - 1em);
+            color: $primaryColour;
+            font-size: 1.5em;
+            margin-top: 8px;
+            padding:.5em; 
+        }
+    }
+}
 .categoryRow{
     width: 100%;
     position: relative;
-    padding: 0 .8em;
+    h3{
+        padding-left: 1em;
+    }
     .blogsContent{
         display: flex;
         flex-direction: row;
         margin-top: 40px;
         .blogItem{
             width: 33%;
-            margin-left: 8px;
+            margin-right: 8px;
+            position: relative;
+            div{
+                position: relative;
+                width: 100%;
+                height: max-content;
+            }
             img{
                 width: 100%;
             }
             p{
-                width: 90%;
+                width: calc(100% - 25px);
                 border-left: 5px solid $complementaryColour;
                 padding: 10px;
                 font-size: 12px;
@@ -638,6 +673,22 @@ h2,h3{
                 background-color: $whiteColour;
                 box-shadow: 10px 10px 20px rgba(0,0,0,.2);
             }
+            :last-child{
+                margin-right: 0px;
+            }
+        }
+        .blogItem[data-reading] div::after{
+            content: "Continue Reading";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            padding-top: 50%;
+            text-align: center;
+            font-weight: 900;
+            color: $secondaryColour;
+            background-color: transparentize($complementaryColour, .25);
         }
     }
     button{
@@ -784,13 +835,6 @@ h2,h3{
             display: block;
             .trending{
                 width: 100%;
-                .bigTrending{
-                    .info{
-                        p{
-                            font-size: 16px;
-                        }
-                    }
-                }
             }
             .specialTrending{
                 width: 100%;
@@ -800,6 +844,13 @@ h2,h3{
                     width: 100%;
                     height: auto;
                 }
+            }
+        }
+    }
+    .bigTrending{
+        .info{
+            p{
+                font-size: 16px;
             }
         }
     }
@@ -821,6 +872,11 @@ h2,h3{
                     font-weight: 200px;
                     padding: 15px;
                 }
+            }
+            .blogItem[data-reading] div::after{
+                width: 40%;
+                height: 50%;
+                padding-top: 20%;
             }
         }
     }

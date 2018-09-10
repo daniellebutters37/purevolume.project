@@ -497,88 +497,79 @@ h2, h3 {
 
 .homeSection .max-width .trending {
   margin-top: 18px;
-  width: 65%;
+  width: 100%;
   position: relative;
-}
-
-.homeSection .max-width .trending .bigTrending {
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-bottom: 10px;
-}
-
-.homeSection .max-width .trending .bigTrending img {
-  width: 100%;
-}
-
-.homeSection .max-width .trending .bigTrending .info {
-  position: absolute;
-  bottom: 40px;
-}
-
-.homeSection .max-width .trending .bigTrending .info span {
-  background-color: #fff32b;
-  font-weight: 600;
-  text-transform: lowercase;
-  padding: 8px 22px;
-}
-
-.homeSection .max-width .trending .bigTrending .info p {
-  background: rgba(23, 21, 34, 0.65);
-  font-weight: 900;
-  text-transform: uppercase;
-  width: 70%;
-  color: #5FC6C9;
-  font-size: 1.5em;
-  padding: .5em;
 }
 
 .homeSection .max-width .trending .squareTrending {
   position: relative;
-  width: 48%;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  margin-left: 2%;
-  float: left;
+  height: 0;
+  overflow: hidden;
+  padding-top: 31%;
+  margin-bottom: 10px;
+  width: calc(50% - 15px);
+  margin-right: 15px;
 }
 
 .homeSection .max-width .trending .squareTrending img {
+  position: absolute;
   width: 100%;
+  top: 0;
 }
 
 .homeSection .max-width .trending .squareTrending .info {
   position: absolute;
-  bottom: 4px;
-  text-align: right;
+  bottom: 0px;
 }
 
-.homeSection .max-width .trending .squareTrending .info span {
+.homeSection .max-width .trending .squareTrending .info .tag {
   background-color: #fff32b;
   font-weight: 600;
   text-transform: lowercase;
   padding: 4px 18px;
   font-size: 12px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: right;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
 }
 
 .homeSection .max-width .trending .squareTrending .info p {
-  float: right;
-  text-align: left;
   border-left: 5px solid #5FC6C9;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.8);
   font-weight: 900;
   text-transform: uppercase;
-  width: 60%;
+  width: calc(100% - 36px);
   color: #171522;
   font-size: 14px;
   padding: 10px 18px;
-  -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+  margin-top: 3px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.homeSection .max-width .trending .squareTrending :hover .info .tag {
+  width: 50%;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+}
+
+.homeSection .max-width .trending .squareTrending:nth-child(odd) {
+  margin-right: 0;
+  width: 50%;
 }
 
 .homeSection .max-width .specialTrending {
@@ -645,17 +636,58 @@ h2, h3 {
 }
 
 .homeSection .max-width .advertisements {
-  padding: .5em;
+  padding: 18px;
 }
 
 .homeSection .max-width .advertisements div {
   margin: 0 auto;
 }
 
+.bigTrending {
+  height: 0;
+  overflow: hidden;
+  padding-top: 35%;
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.bigTrending img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.bigTrending .info {
+  position: absolute;
+  bottom: 0px;
+}
+
+.bigTrending .info span {
+  background-color: #fff32b;
+  font-weight: 600;
+  text-transform: lowercase;
+  padding: 8px 22px;
+}
+
+.bigTrending .info p {
+  background: rgba(23, 21, 34, 0.65);
+  font-weight: 900;
+  text-transform: uppercase;
+  width: calc(100% - 1em);
+  color: #5FC6C9;
+  font-size: 1.5em;
+  margin-top: 8px;
+  padding: .5em;
+}
+
 .categoryRow {
   width: 100%;
   position: relative;
-  padding: 0 .8em;
+}
+
+.categoryRow h3 {
+  padding-left: 1em;
 }
 
 .categoryRow .blogsContent {
@@ -671,7 +703,16 @@ h2, h3 {
 
 .categoryRow .blogsContent .blogItem {
   width: 33%;
-  margin-left: 8px;
+  margin-right: 8px;
+  position: relative;
+}
+
+.categoryRow .blogsContent .blogItem div {
+  position: relative;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .categoryRow .blogsContent .blogItem img {
@@ -679,7 +720,7 @@ h2, h3 {
 }
 
 .categoryRow .blogsContent .blogItem p {
-  width: 90%;
+  width: calc(100% - 25px);
   border-left: 5px solid #fff32b;
   padding: 10px;
   font-size: 12px;
@@ -687,6 +728,24 @@ h2, h3 {
   background-color: #ffffff;
   -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
           box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.categoryRow .blogsContent .blogItem :last-child {
+  margin-right: 0px;
+}
+
+.categoryRow .blogsContent .blogItem[data-reading] div::after {
+  content: "Continue Reading";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  padding-top: 50%;
+  text-align: center;
+  font-weight: 900;
+  color: #171522;
+  background-color: rgba(255, 243, 43, 0.75);
 }
 
 .categoryRow button {
@@ -843,9 +902,6 @@ h2, h3 {
   .homeSection .max-width .trending {
     width: 100%;
   }
-  .homeSection .max-width .trending .bigTrending .info p {
-    font-size: 16px;
-  }
   .homeSection .max-width .specialTrending {
     width: 100%;
     padding: 0;
@@ -854,6 +910,9 @@ h2, h3 {
   .homeSection .max-width .specialTrending .video {
     width: 100%;
     height: auto;
+  }
+  .bigTrending .info p {
+    font-size: 16px;
   }
   .categoryRow .blogsContent {
     display: block;
@@ -873,6 +932,11 @@ h2, h3 {
     font-size: 18px;
     font-weight: 200px;
     padding: 15px;
+  }
+  .categoryRow .blogsContent .blogItem[data-reading] div::after {
+    width: 40%;
+    height: 50%;
+    padding-top: 20%;
   }
 }
 
