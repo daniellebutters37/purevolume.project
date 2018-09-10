@@ -664,7 +664,9 @@ h2,h3{
         margin-top: 20px;
     }
 }
+
 // category
+
 .categorySection{
     .max-width{
         display: flex;
@@ -675,6 +677,9 @@ h2,h3{
             position: relative;
             img{
                 width: 100%;
+            }
+            .bigTrending{
+                margin-top: 40px;
             }
         }
         .advertisements{

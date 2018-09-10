@@ -738,6 +738,10 @@ h2, h3 {
   width: 100%;
 }
 
+.categorySection .max-width .categoryContent .bigTrending {
+  margin-top: 40px;
+}
+
 .categorySection .max-width .advertisements {
   padding: 2em;
 }
