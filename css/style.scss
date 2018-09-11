@@ -113,6 +113,56 @@ ul{
     width: 100%;
     margin: 0 auto;
 }
+.button{
+    margin: 20px auto;
+    cursor: pointer;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+    background-color: $primaryColour;
+    color: $whiteColour;
+    white-space: nowrap;
+    box-shadow: 0px 0px 0px 0px transparentize($primaryColour, .75);
+    @include transition(box-shadow .15s, transform .2s);
+
+    @include transform(translate(0, 0%));
+
+    &:hover{
+        box-shadow: 5px 5px 20px 5px transparentize($secondaryColour, .85);
+        @include transform(translate(0,-20%));
+    }
+    &:active {
+        box-shadow: -5px -5px 10px 0px transparentize($primaryColour, .65);
+        @include transform(translate(0, 0%));
+    }
+}
+
+.invertColorBTN{
+    color: $secondaryColour;
+    background-color: $complementaryColour;
+    &:hover{
+        box-shadow: 5px 5px 20px 5px transparentize($secondaryColour, .85);
+        @include transform(translate(0,-20%));
+    }
+    &:active {
+        box-shadow: -5px -5px 10px 0px transparentize($complementaryColour, .65);
+        @include transform(translate(0, 0%));
+    }
+}
+
+.centerBTN{
+    margin-left: 50%;
+    @include transform(translate(-50%, 0%));
+    &:hover{
+        @include transform(translate(-50%,-20%));
+    }
+    &:active {
+        @include transform(translate(-50%, 0%));
+    }
+}
 
 p {
     margin: 0;
@@ -187,34 +237,25 @@ h2,h3{
 
 //input
 
-.emailForm{
-    width: 100%;
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='password']{
+    width: calc(100% - 60px);
     font-weight: 700;
-    padding: 12px 0 10px 3%;
-    border-radius: 20px;
+    padding: 12px 30px;
+    border-radius: 50px;
     text-transform: uppercase;
     color: grey;
     margin-bottom: 20px;
+    &:hover{
+        box-shadow: 5px 5px 20px 5px transparentize($secondaryColour, .85);
+    }
+    &:focus{
+        box-shadow: 5px 5px 20px 5px transparentize($secondaryColour, .85);
+    }
 }
 
-//buttons
-
-.invertBtn{
-    cursor: pointer;
-    padding: 11px 30px 10px 30px;
-    margin-left: 50%;
-    @include transform(translateX(-50%));
-    border-radius: 20px;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: $secondaryColour;
-    background-color: $complementaryColour;
-    margin-bottom: 20px;
-}
-.primaryBG{
-    background-color: $primaryColour;
-    color: $whiteColour;
-}
 
 .relatedArticles{
     margin-top: 40px;
@@ -453,7 +494,8 @@ h2,h3{
             position: absolute;
             width: max-content;
             left: 0;
-            @include transition(left .5s);
+            margin-left: 0;
+            @include transition(left .5s, margin-left .5s);
             .storyItem{
                 position: relative;
                 margin-right: 2px;
@@ -598,57 +640,25 @@ h2,h3{
             }
             
         }
-        .specialTrending{
-            width: 35%;
-            padding: 1em;
-            .trendingByCategory{
-                position: relative;
-                padding: .5em;
-                text-align: center;
-                border-left: 5px solid $primaryColour;
-                margin-bottom: 10px;
-                h5{
-                    text-transform: uppercase;
-                    color: $primaryColour;
-                    margin-bottom: 10px;
-                    span{
-                        background-color: $complementaryColour;
-                        color: $secondaryColour;
-                        padding: 0 10px;
-                    }
-                }
-                div{
-                    text-align: left;
-                    margin-bottom: 10px;
-                    img{
-                        width: 100%;
-                    }
-                    a{
-                        font-weight: 600;
-                        font-size: 14px;
-                    }
-                }
-            }
-            .video{
-                width: fit-content;
-                height: max-content;
-                position: relative;
-                img{
-                    width: 100%;
-                }
-                i{
-                    position: absolute;
-                    top:50%;
-                    left:50%;
-                    color: $primaryColour;
-                    font-size: 4em;
-                    @include transform(translate(-50%,-50%));
-                }
-            }
-        }
     }
 }
 
+.video{
+    width: fit-content;
+    height: max-content;
+    position: relative;
+    video{
+        width: 100%;
+    }
+    i{
+        position: absolute;
+        top:50%;
+        left:50%;
+        color: $primaryColour;
+        font-size: 4em;
+        @include transform(translate(-50%,-50%));
+    }
+}
 .advertisements{
     padding: 18px;
 }
@@ -696,6 +706,7 @@ h2,h3{
         display: flex;
         flex-direction: row;
         margin-top: 40px;
+        margin-bottom: 30px;
         .blogItem{
             width: 33%;
             margin-right: 8px;
@@ -748,8 +759,9 @@ h2,h3{
         display: flex;
         flex-direction: row;
         .categoryContent{
-            margin: 2em;
-            width: fit-content;
+            margin: 1.2em;
+            margin-top: 2.5em;
+            width: calc(100% - 1.2em);
             position: relative;
             img{
                 width: 100%;
@@ -984,14 +996,17 @@ h2,h3{
             display: block;
             .blogItem{
                 width: 100%;
-                padding-top: 20px; 
+                padding-top: 40px; 
                 position: relative;
                 min-height: 40vw;
-                img{
+                div{
                     position: absolute;
-                    width: 40%;
+                    width: 100%;
                     top: 0;
                     z-index: -1;
+                    img{
+                        width: 40%;
+                    }
                 }
                 p{
                     width: calc(70% - 30px);
@@ -1003,10 +1018,13 @@ h2,h3{
                 }
             }
             .blogItem[data-reading] div::after{
-                width: 40%;
-                height: calc(40vw - 30px);
-                padding-top: 30px;
-                z-index: 1;
+                position: absolute;
+                width: 60%;
+                padding: 10px;
+                margin-left: 40%;
+                font-size: 16px;
+                text-align: left;
+                background-color: $complementaryColour;
             }
         }
     }
