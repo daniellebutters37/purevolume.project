@@ -69,6 +69,7 @@ body{
     margin: 0;
     font-family: $fonts;
     overflow-x: hidden;
+    padding-top: 110px;
 }
 body,input,p,a,span{
     font-family: $fonts;
@@ -490,7 +491,6 @@ input[type='password']{
 #mainContent{
     position: relative;
     width: 100%;
-    margin-top: 110px;
     min-height: 85vh;
     z-index: 1;
     perspective: 1000px;
@@ -585,7 +585,7 @@ input[type='password']{
                 margin-right: 15px;
                 @include transition(transform .25s);
                 &:hover{
-                    @include transform(rotateX(10deg) rotateY(-5deg) );
+                    @include transform(rotateX(8deg));
                 }
                 img{
                     position: absolute;
@@ -623,7 +623,7 @@ input[type='password']{
                         background: transparentize($primaryColour, .15);
                         border: none;
                         position: absolute;
-                        height: 300%;
+                        height: 50vh;
                         color: $secondaryColour;
                         top: 100%;
                         @include transition(top .5s);
@@ -647,25 +647,24 @@ input[type='password']{
             .squareTrending:nth-child(odd){
                 margin-right: 0;
                 width: 50%;
-                &:hover{
-                    @include transform(rotateX(10deg) rotateY(5deg) );
-                }
             }
             
         }
     }
 }
-
 .video{
     margin-top: 20px;
     height: 0;
     overflow: hidden;
-    padding-top: 25%;
+    padding-top: 15%;
     position: relative;
+    margin-left: 50%;
     width: 100%;
+    max-width: 1200px;
+    @include transform(translate(-50%, 0%));
     cursor: pointer;
     video{
-        width: 100%;
+        width: 100.5%;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -685,6 +684,29 @@ input[type='password']{
             font-size: 7em;
             @include transform(translate(-50%,-50%));
             mix-blend-mode: multiply;
+        }
+    }
+}
+.open-lightBox{
+    @include transition(width .5s,height .5s, top .5s, background-color .5s);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    background-color: transparentize($secondaryColour,.2);
+    .video{
+        position: absolute;
+        max-width: 80vw;
+        width: 80vw;
+        height: 45vw;
+        padding-top: 0;
+        margin: 0;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%,-50%));
+        div{
+            display: none;
         }
     }
 }
@@ -739,46 +761,68 @@ input[type='password']{
         display: flex;
         flex-direction: row;
         margin-top: 40px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         .blogItem{
-            width: 33%;
-            margin-right: 8px;
             position: relative;
-            perspective: 1000px;
+            height: 0;
+            overflow: hidden;
+            padding-top: 31%;
+            margin-bottom: 10px;
+            width: calc(33% - 8px);
+            margin-right: 15px;
             @include transition(transform .25s);
             div{
-                position: relative;
+                position: absolute;
                 width: 100%;
                 height: max-content;
-                @include transition(transform .25s);
+                top:0;
             }
             img{
                 width: 100%;
             }
-            p{
-                width: calc(100% - 25px);
-                border-left: 5px solid $complementaryColour;
-                padding: 10px;
-                font-size: 12px;
-                font-weight: 700;
-                background-color: $whiteColour;
-                box-shadow: 10px 10px 20px rgba(0,0,0,.2);
-                @include transition(transform .25s);
+            .info{
+                position: absolute;
+                width: 100%;
+                top: 100%;
+                @include transform(translateY(-100%));
+                @include transition(top .5s);
+                p{
+                    position: absolute;
+                    bottom: 0;
+                    width: calc(100% - 25px);
+                    border-left: 5px solid $complementaryColour;
+                    padding: 10px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    background-color: rgba(255,255,255,.95);
+                    box-shadow: 10px 10px 20px rgba(0,0,0,.2);
+                    @include transition(transform .25s);
+                }
+                .details{
+                    background: transparentize($primaryColour, .15);
+                    border: none;
+                    position: absolute;
+                    height: 50vh;
+                    color: $secondaryColour;
+                    top: 100%;
+                    @include transition(top .5s);
+                    text-align: center;
+                    width: calc(100% - 44px);
+                    padding: 40px 22px;
+                    font-size: 18px;
+                }
             }
+                
             :last-child{
                 margin-right: 0px;
             }
             &:hover{
-                @include transform(scale(.95));
-                div{
-                    @include transform(rotateX(20deg));
-                }
-                p{
-                    @include transform(rotateX(-20deg) scale(1.05));
+                .info{
+                    top: 0%;
                 }
             }
         }
-        .blogItem[data-reading] div::after{
+        .blogItem[data-reading] div:nth-child(1)::after{
             content: "Continue Reading";
             position: absolute;
             top: 0;
@@ -1071,6 +1115,13 @@ input[type='password']{
             width: auto;
         }
     }
+    .open-lightBox{
+        .video{
+            width: 100vw;
+            max-width: 100vw;
+            height: 100vw;
+        }
+    }
     .homeSection{
         .max-width{
             .trending{
@@ -1115,12 +1166,13 @@ input[type='password']{
     }
     .categoryRow{
         .blogsContent{
-            display: block;
+            flex-wrap: wrap;
             .blogItem{
                 width: 100%;
-                padding-top: 40px; 
-                position: relative;
+                padding-top: 0;
+                height: max-content;
                 min-height: 40vw;
+                margin-right: 0px;
                 div{
                     position: absolute;
                     width: 100%;
@@ -1130,19 +1182,31 @@ input[type='password']{
                         width: 40%;
                     }
                 }
-                p{
-                    width: calc(70% - 30px);
+                .info{
+                    position: relative;
+                    width: 70%;
                     margin-left: 30%;
-                    font-size: 18px;
-                    font-weight: 200px;
-                    padding: 15px;
-                    z-index: 2;
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                    @include transform(translateY(0%));
+                    p{
+                        position: relative;
+                        width: calc(100% - 30px);
+                        font-size: 18px;
+                        font-weight: 200px;
+                        padding: 15px;
+                        z-index: 2;
+                    }
+                    .details{
+                        display: none;
+                    }
                 }
             }
-            .blogItem[data-reading] div::after{
+            .blogItem[data-reading] div:nth-child(1)::after{
                 position: absolute;
                 width: 60%;
                 padding: 10px;
+                height: 20px;
                 margin-left: 40%;
                 font-size: 16px;
                 text-align: left;
