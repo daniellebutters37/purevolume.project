@@ -670,7 +670,10 @@ input[type='password']{
         left: 50%;
         @include transform(translate(-50%,-50%));
     }
-    div{
+    .controls{
+        display: none;
+    }
+    .play-icon{
         position: absolute;
         width: 100%;
         height: 100%;
@@ -707,6 +710,84 @@ input[type='password']{
         @include transform(translate(-50%,-50%));
         div{
             display: none;
+        }
+        button{
+            min-width: 40px;
+            min-height: 40px;
+            border-radius: 20px;
+            background-color: transparentize($secondaryColour,.8);
+            cursor: pointer;
+            i{
+                color: $primaryColour;
+                font-size: 1.5em;
+            }
+            &:hover{
+                background-color: transparentize($secondaryColour,.5);
+            }
+        }
+        .playerClose{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            border-radius: 20px;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 12px;
+            margin: 10px;
+            border-radius: 5px;
+            background: transparentize($whiteColour,.75);
+            outline: none;
+            box-shadow: 5px 5px 15px transparentize($secondaryColour,.5);
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: $primaryColour;
+            box-shadow: 5px 5px 10px transparentize($secondaryColour,.5);
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: $primaryColour;
+            cursor: pointer;
+        }
+        .controls{
+            border-radius: 20px;
+            margin: 5px;
+            position: absolute;
+            top: calc(100% - 10px);
+            display: block;
+            z-index: 10;
+            @include transform(translateY(-100%));
+            background-color: transparentize($secondaryColour,.5);
+            width: calc(100% - 10px);
+            .videoControls{
+                display: flex;
+                align-content: stretch;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+            .volumeControl{
+                border-radius: 20px;
+                width: max-content;
+                height: max-content;
+                padding: 5px;
+                background-color: transparentize($secondaryColour,.5);
+                .slider{
+                    width: 150px;
+                    @include transform(rotate(-90deg));
+                }
+            }
         }
     }
 }
@@ -1117,9 +1198,9 @@ input[type='password']{
     }
     .open-lightBox{
         .video{
-            width: 100vw;
-            max-width: 100vw;
-            height: 100vw;
+            width: 95vw;
+            max-width: 95vw;
+            height: 95vw;
         }
     }
     .homeSection{

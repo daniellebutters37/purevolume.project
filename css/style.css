@@ -739,7 +739,11 @@ input[type='password']:focus {
   transform: translate(-50%, -50%);
 }
 
-.video div {
+.video .controls {
+  display: none;
+}
+
+.video .play-icon {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -747,7 +751,7 @@ input[type='password']:focus {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.video div i {
+.video .play-icon i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -784,6 +788,108 @@ input[type='password']:focus {
 
 .open-lightBox .video div {
   display: none;
+}
+
+.open-lightBox .video button {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 20px;
+  background-color: rgba(23, 21, 34, 0.2);
+  cursor: pointer;
+}
+
+.open-lightBox .video button i {
+  color: #5FC6C9;
+  font-size: 1.5em;
+}
+
+.open-lightBox .video button:hover {
+  background-color: rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .playerClose {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 20px;
+}
+
+.open-lightBox .video .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 12px;
+  margin: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  -webkit-box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
+          box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #5FC6C9;
+  -webkit-box-shadow: 5px 5px 10px rgba(23, 21, 34, 0.5);
+          box-shadow: 5px 5px 10px rgba(23, 21, 34, 0.5);
+  cursor: pointer;
+}
+
+.open-lightBox .video .slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #5FC6C9;
+  cursor: pointer;
+}
+
+.open-lightBox .video .controls {
+  border-radius: 20px;
+  margin: 5px;
+  position: absolute;
+  top: calc(100% - 10px);
+  display: block;
+  z-index: 10;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  background-color: rgba(23, 21, 34, 0.5);
+  width: calc(100% - 10px);
+}
+
+.open-lightBox .video .controls .videoControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.open-lightBox .video .controls .volumeControl {
+  border-radius: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 5px;
+  background-color: rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .controls .volumeControl .slider {
+  width: 150px;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .advertisements {
@@ -1274,9 +1380,9 @@ input[type='password']:focus {
     width: auto;
   }
   .open-lightBox .video {
-    width: 100vw;
-    max-width: 100vw;
-    height: 100vw;
+    width: 95vw;
+    max-width: 95vw;
+    height: 95vw;
   }
   .homeSection .max-width .trending .squareTrending {
     padding-top: 50%;
