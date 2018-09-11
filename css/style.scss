@@ -273,11 +273,18 @@ input[type='password']{
     font-size: 1.5em;
     a{
         padding: 5px 0;
-    }
-    .fa{
-        color: $primaryColour;
-        margin-right: 10px;
-        margin-left: 10px;
+        .fa{
+            color: $primaryColour;
+            margin-right: 10px;
+            margin-left: 10px;
+            @include transition(margin-right .2s, margin-left .2s);
+        }
+        &:hover{
+            .fa{
+                margin-right: 40px;
+                margin-left: 40px;
+            }
+        }
     }
 }
 
@@ -486,6 +493,7 @@ input[type='password']{
     margin-top: 110px;
     min-height: 85vh;
     z-index: 1;
+    perspective: 1000px;
     .storyThumbsLine{
         position: relative;
         height: 130px;
@@ -560,15 +568,13 @@ input[type='password']{
     .max-width{
         display: flex;
         flex-direction: row;
-        margin-bottom: 20px;
-        align-items: center;
         .trending{
-            margin-top: 18px;
             width: 100%;
             position: relative;
             display: flex;
             flex-wrap: wrap;
             height: max-content;
+            margin-top: 18px;
             .squareTrending{
                 position: relative;
                 height: 0;
@@ -577,6 +583,10 @@ input[type='password']{
                 margin-bottom: 10px;
                 width: calc(50% - 15px);
                 margin-right: 15px;
+                @include transition(transform .25s);
+                &:hover{
+                    @include transform(rotateX(10deg) rotateY(-5deg) );
+                }
                 img{
                     position: absolute;
                     width: 100%;
@@ -637,6 +647,9 @@ input[type='password']{
             .squareTrending:nth-child(odd){
                 margin-right: 0;
                 width: 50%;
+                &:hover{
+                    @include transform(rotateX(10deg) rotateY(5deg) );
+                }
             }
             
         }
@@ -644,19 +657,35 @@ input[type='password']{
 }
 
 .video{
-    width: fit-content;
-    height: max-content;
+    margin-top: 20px;
+    height: 0;
+    overflow: hidden;
+    padding-top: 25%;
     position: relative;
+    width: 100%;
+    cursor: pointer;
     video{
         width: 100%;
-    }
-    i{
         position: absolute;
-        top:50%;
-        left:50%;
-        color: $primaryColour;
-        font-size: 4em;
+        top: 50%;
+        left: 50%;
         @include transform(translate(-50%,-50%));
+    }
+    div{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: transparentize($whiteColour, .5);
+        i{
+            position: absolute;
+            top:50%;
+            left:50%;
+            color: $primaryColour;
+            font-size: 7em;
+            @include transform(translate(-50%,-50%));
+            mix-blend-mode: multiply;
+        }
     }
 }
 .advertisements{
@@ -669,6 +698,10 @@ input[type='password']{
     position: relative;
     margin-bottom: 15px;
     width: 100%;
+    @include transition(transform .25s);
+    &:hover{
+        @include transform(rotateX(10deg));
+    }
     img{
         width: 100%;
         position: absolute;
@@ -711,10 +744,13 @@ input[type='password']{
             width: 33%;
             margin-right: 8px;
             position: relative;
+            perspective: 1000px;
+            @include transition(transform .25s);
             div{
                 position: relative;
                 width: 100%;
                 height: max-content;
+                @include transition(transform .25s);
             }
             img{
                 width: 100%;
@@ -727,9 +763,19 @@ input[type='password']{
                 font-weight: 700;
                 background-color: $whiteColour;
                 box-shadow: 10px 10px 20px rgba(0,0,0,.2);
+                @include transition(transform .25s);
             }
             :last-child{
                 margin-right: 0px;
+            }
+            &:hover{
+                @include transform(scale(.95));
+                div{
+                    @include transform(rotateX(20deg));
+                }
+                p{
+                    @include transform(rotateX(-20deg) scale(1.05));
+                }
             }
         }
         .blogItem[data-reading] div::after{
@@ -777,12 +823,24 @@ input[type='password']{
 }
 
 
+.skyScraperAdContainer{
+    width: 13.5%;
+}
+
 .skyScraperAd{
-    width: 120px;
-    height: 600px;
-    background-color: #EEE;
-    margin-bottom: 2em;
-    margin: 2em auto;
+    height: 0;
+    overflow: hidden;
+    padding-top: 500%;
+    position: relative;
+    width: 100%;
+    div{
+        position: absolute;
+        background-color: #EEE;
+        margin-bottom: 2em;
+        width: 100%;
+        height: 100%;
+        top:0;
+    }
 }
 
 .squareAds{
@@ -796,15 +854,59 @@ input[type='password']{
 // ARTICLE
 
 #articleSocialMedia{
+    margin-top: 40px;
+    padding: 10px;
+    background-color: rgba(0,0,0,.15);
+    width: max-content;
+    border-radius: 50px;
+    position: relative;
+    perspective:250px;
     .socMediaIcon{
-        padding: 7px 40px;
-        border-radius: 20px;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
         background-color: $primaryColour;
-        margin-top: 20px;
         display: inline-block;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px 0px transparentize($secondaryColour, .75);
+        @include transition(box-shadow .25s);
+        &:hover{
+            box-shadow: 0px 10px 20px 0px transparentize($secondaryColour, .75);
+        }
         .fa{
+            margin-top:50%;
+            margin-left:50%;
             color: $whiteColour;
+            font-size: 2em;
+            text-align: center;
+            @include transform(translate(-50%,-50%));
+        }
+    }
+    .tag{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        border-radius: 50px;
+        position: absolute;
+        background-color: $primaryColour;
+        @include transition(transform .25s);
+        transform-origin: 0% 0%;
+        white-space: nowrap;
+        span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%,-50%));
             font-size: 1.5em;
+            font-weight: 900;
+            color: $whiteColour;
+        }
+    }
+    &:hover{
+        .tag{
+            @include transform(rotateX(90deg));
         }
     }
 }
@@ -838,6 +940,7 @@ input[type='password']{
     }
     .max-width{
         display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -845,23 +948,30 @@ input[type='password']{
     max-width: 30%;
     padding-top: 40px;
     padding-bottom: 15px;
-    margin: 0 auto;
+    order: 2;
 }
 
 .roundedIcon{
-    margin-top: 30px;
+    padding: 10px;
+    margin: 30px 5px;
     background-color: $whiteColour;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     margin-bottom: 15px;
     display: inline-block;
+    
+    box-shadow: 0px 0px 0px 0px transparentize($secondaryColour, .75);
+    @include transition(box-shadow .15s);
     .fa{
         font-size: 2em;
         cursor: pointer;
         color: $primaryColour;
         text-align: center;
         margin-top: 8px;
+    }
+    &:hover{
+        box-shadow: 0px 10px 20px 0px transparentize($secondaryColour, .75);
     }
 }
 
@@ -870,14 +980,16 @@ input[type='password']{
     padding-top: 40px;
     padding-bottom: 15px;
     text-align: center;
+    order: 3;
+    margin: 0 20px;
 }
 
 #footerNav{
     max-width: 30%;
     padding-top: 40px;
     padding-bottom: 15px;
-    margin: 0 auto;
     font-weight: 700;
+    order: 1;
     ul {
         margin-top: 60px;
         list-style: none;
@@ -952,6 +1064,13 @@ input[type='password']{
             }
         }
     }
+    .video{
+        padding-top: 100%;
+        video{
+            height: 100%;
+            width: auto;
+        }
+    }
     .homeSection{
         .max-width{
             .trending{
@@ -988,6 +1107,9 @@ input[type='password']{
                     margin-right: 0;
                     width: 100%;
                 }
+            }
+            .skyScraperAdContainer{
+                width: 100%;
             }
         }
     }

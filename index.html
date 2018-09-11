@@ -65,12 +65,20 @@
         <section id="mainContent" class="homeSection">
 
             <h2 class="hidden">Home Page</h2>
-        
             <div class="max-width">
-
+                <div class="video">
+                    <video autoplay muted loop>
+                        <source src="videos/video720p.mp4" type="video/mp4">
+                    </video>
+                    <div>
+                        <i class="fa fa-play-circle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="max-width">
                 <div class="trending">
                     <div class="bigTrending">
-                        <a href="#" >
+                        <a href="/article.html" >
                             <img src="images/blogThumb/drake.jpg" alt="Drake"/>
                             <div class="info">
                                 <span>entertainment</span>
@@ -79,7 +87,7 @@
                         </a>
                     </div>
                     <div class="squareTrending">
-                        <a href="#" >
+                        <a href="/article.html" >
                             <img src="images/blogThumb/history-of-vinyl-square.jpg" alt="Vinyl Disc Photo"/>
                             <div class="info">
                                 <div class="tag">entertainment</div>
@@ -89,7 +97,7 @@
                         </a>
                     </div>
                     <div class="squareTrending">
-                        <a href="#" >
+                        <a href="/article.html" >
                             <img src="images/blogThumb/next-generation-of-stars-square.jpg" alt="Julia Garner Photo"/>
                             <div class="info">
                                 <div class="tag">entertainment</div>
@@ -99,8 +107,9 @@
                         </a>
                     </div>
                 </div>
-                <div class="advertisements">
-                    <div class="squareAds">Advertisement</div>
+                <div class="advertisements skyScraperAdContainer">
+                    <div class="squareAds onlyInSmall">Advertisement</div>
+                    <div class="skyScraperAd hideInSmall"><div>Advertisement</div></div>
                 </div>
             </div>
 
@@ -111,7 +120,7 @@
                     <h3 class="leftHeading primaryColourTxt">POP CULTURE</h3>
                     <div class="blogsContent">
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/ride-in-back-of-station-wagon-square.jpg" alt="Ride In Back Of Station Wagon"/>
                                 </div>
@@ -119,7 +128,7 @@
                             </a>
                         </div>
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/diddy-square.jpg" alt="Diddy"/>
                                 </div>
@@ -127,7 +136,7 @@
                             </a>
                         </div>
                         <div class="blogItem" data-reading="true">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/history-of-vinyl-square.jpg" alt="Vinyl Disc Photo"/>
                                 </div>
@@ -135,7 +144,7 @@
                             </a>
                         </div>
                     </div>
-                    <button class="button centerBTN"> Show More </button>
+                    <button class="button centerBTN" onclick="window.location = '/article.html'"> Show More </button>
                 </div>
                 <div class="advertisements">
                     <div class="squareAds"> Advertisement </div>
@@ -149,7 +158,7 @@
                     <h3 class="leftHeading primaryColourTxt">ENTERTAINMENT</h3>
                     <div class="blogsContent">
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/next-generation-of-stars-square.jpg" alt="Julia Garner Photo"/>
                                 </div>
@@ -157,7 +166,7 @@
                             </a>
                         </div>
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/alicia-keys-square.jpg" alt="Alicia Keys"/>
                                 </div>
@@ -165,7 +174,7 @@
                             </a>
                         </div>
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/ryan-gosling-square.jpg" alt="Ryan Gosling"/>
                                 </div>
@@ -173,7 +182,7 @@
                             </a>
                         </div>
                     </div>
-                    <button class="button centerBTN"> Show More </button>
+                    <button class="button centerBTN" onclick="window.location = '/article.html'"> Show More </button>
                 </div>
                 <div class="advertisements">
                     <div class="squareAds"> Advertisement </div>
@@ -187,7 +196,7 @@
                     <h3 class="leftHeading primaryColourTxt">MUSIC</h3>
                     <div class="blogsContent">
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/jack-white-square.jpg" alt="Jack White"/>
                                 </div>
@@ -195,7 +204,7 @@
                             </a>
                         </div>
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/kurt-cobain-square.jpg" alt="Kurt Cobain"/>
                                 </div>
@@ -203,7 +212,7 @@
                             </a>
                         </div>
                         <div class="blogItem">
-                            <a href="#">
+                            <a href="/article.html">
                                 <div>
                                     <img src="images/blogThumb/paul-mccartney-square.jpg" alt="Paul McCartney"/>
                                 </div>
@@ -211,7 +220,7 @@
                             </a>
                         </div>
                     </div>
-                    <button class="button centerBTN"> Show More </button>
+                    <button class="button centerBTN" onclick="window.location = '/article.html'"> Show More </button>
                 </div>
                 <div class="advertisements">
                     <div class="squareAds"> Advertisement </div>
@@ -233,18 +242,18 @@
                 
                 <div id="footerSocialMedia">
                     <h3 class="centerHeading invertColourTxt">Connect with us</h3>
-                    <div class="roundedIcon"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></div>
-                    <div class="roundedIcon"><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></div>
-                    <div class="roundedIcon"><a href="https://www.facebook.com"><i class="fa fa-facebook-f"></i></a></div>
+                    <a href="https://twitter.com/"><div class="roundedIcon"><i class="fa fa-twitter"></i></div></a>
+                    <a href="https://www.instagram.com"><div class="roundedIcon"><i class="fa fa-instagram"></i></div></a>
+                    <a href="https://www.facebook.com"><div class="roundedIcon"><i class="fa fa-facebook-f"></i></div></a>
                 </div>
 
                 <div id="footerNav">
                     <h3 class="centerHeading invertColourTxt">Navigation</h3>
                     <ul>
-                        <li><a>HOME</a></li>
-                        <li><a>POP CULTURE</a></li>
-                        <li><a>ENTERTAINMENT</a></li>
-                        <li><a>MUSIC</a></li>
+                        <li><a href="/index.html">HOME</a></li>
+                        <li><a href="/article.html">POP CULTURE</a></li>
+                        <li><a href="/article.html">ENTERTAINMENT</a></li>
+                        <li><a href="/article.html">MUSIC</a></li>
                     </ul>
                 </div>
 

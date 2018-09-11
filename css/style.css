@@ -249,10 +249,17 @@ input[type='password']:focus {
   padding: 5px 0;
 }
 
-.categoryNav .fa {
+.categoryNav a .fa {
   color: #5FC6C9;
   margin-right: 10px;
   margin-left: 10px;
+  -webkit-transition: margin-right 0.2s, margin-left 0.2s;
+  transition: margin-right 0.2s, margin-left 0.2s;
+}
+
+.categoryNav a:hover .fa {
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
 .photoCredit {
@@ -509,6 +516,8 @@ input[type='password']:focus {
   margin-top: 110px;
   min-height: 85vh;
   z-index: 1;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
 }
 
 #mainContent .storyThumbsLine {
@@ -601,14 +610,9 @@ input[type='password']:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-bottom: 20px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .homeSection .max-width .trending {
-  margin-top: 18px;
   width: 100%;
   position: relative;
   display: -webkit-box;
@@ -619,6 +623,7 @@ input[type='password']:focus {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  margin-top: 18px;
 }
 
 .homeSection .max-width .trending .squareTrending {
@@ -629,6 +634,16 @@ input[type='password']:focus {
   margin-bottom: 10px;
   width: calc(50% - 15px);
   margin-right: 15px;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+.homeSection .max-width .trending .squareTrending:hover {
+  -webkit-transform: rotateX(10deg) rotateY(-5deg);
+  transform: rotateX(10deg) rotateY(-5deg);
 }
 
 .homeSection .max-width .trending .squareTrending img {
@@ -701,28 +716,47 @@ input[type='password']:focus {
   width: 50%;
 }
 
+.homeSection .max-width .trending .squareTrending:nth-child(odd):hover {
+  -webkit-transform: rotateX(10deg) rotateY(5deg);
+  transform: rotateX(10deg) rotateY(5deg);
+}
+
 .video {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+  margin-top: 20px;
+  height: 0;
+  overflow: hidden;
+  padding-top: 25%;
   position: relative;
+  width: 100%;
+  cursor: pointer;
 }
 
 .video video {
   width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.video i {
+.video div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.video div i {
   position: absolute;
   top: 50%;
   left: 50%;
   color: #5FC6C9;
-  font-size: 4em;
+  font-size: 7em;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
 }
 
 .advertisements {
@@ -736,6 +770,16 @@ input[type='password']:focus {
   position: relative;
   margin-bottom: 15px;
   width: 100%;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+.bigTrending:hover {
+  -webkit-transform: rotateX(10deg);
+  transform: rotateX(10deg);
 }
 
 .bigTrending img {
@@ -792,6 +836,13 @@ input[type='password']:focus {
   width: 33%;
   margin-right: 8px;
   position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
 }
 
 .categoryRow .blogsContent .blogItem div {
@@ -800,6 +851,11 @@ input[type='password']:focus {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
 }
 
 .categoryRow .blogsContent .blogItem img {
@@ -815,10 +871,30 @@ input[type='password']:focus {
   background-color: #ffffff;
   -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
           box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
 }
 
 .categoryRow .blogsContent .blogItem :last-child {
   margin-right: 0px;
+}
+
+.categoryRow .blogsContent .blogItem:hover {
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.categoryRow .blogsContent .blogItem:hover div {
+  -webkit-transform: rotateX(20deg);
+  transform: rotateX(20deg);
+}
+
+.categoryRow .blogsContent .blogItem:hover p {
+  -webkit-transform: rotateX(-20deg) scale(1.05);
+  transform: rotateX(-20deg) scale(1.05);
 }
 
 .categoryRow .blogsContent .blogItem[data-reading] div::after {
@@ -869,12 +945,25 @@ input[type='password']:focus {
   padding: 2em;
 }
 
+.skyScraperAdContainer {
+  width: 13.5%;
+}
+
 .skyScraperAd {
-  width: 120px;
-  height: 600px;
+  height: 0;
+  overflow: hidden;
+  padding-top: 500%;
+  position: relative;
+  width: 100%;
+}
+
+.skyScraperAd div {
+  position: absolute;
   background-color: #EEE;
   margin-bottom: 2em;
-  margin: 2em auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
 }
 
 .squareAds {
@@ -885,17 +974,83 @@ input[type='password']:focus {
   margin: 2em auto;
 }
 
+#articleSocialMedia {
+  margin-top: 40px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.15);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 50px;
+  position: relative;
+  -webkit-perspective: 250px;
+          perspective: 250px;
+}
+
 #articleSocialMedia .socMediaIcon {
-  padding: 7px 40px;
-  border-radius: 20px;
+  border-radius: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #5FC6C9;
-  margin-top: 20px;
   display: inline-block;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+  -webkit-transition: box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+}
+
+#articleSocialMedia .socMediaIcon:hover {
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
 }
 
 #articleSocialMedia .socMediaIcon .fa {
+  margin-top: 50%;
+  margin-left: 50%;
   color: #ffffff;
+  font-size: 2em;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#articleSocialMedia .tag {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 50px;
+  position: absolute;
+  background-color: #5FC6C9;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  white-space: nowrap;
+}
+
+#articleSocialMedia .tag span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 1.5em;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+#articleSocialMedia:hover .tag {
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
 }
 
 .sideBySide {
@@ -936,23 +1091,36 @@ input[type='password']:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #signUp {
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
-  margin: 0 auto;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 
 .roundedIcon {
-  margin-top: 30px;
+  padding: 10px;
+  margin: 30px 5px;
   background-color: #ffffff;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   margin-bottom: 15px;
   display: inline-block;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+  -webkit-transition: box-shadow 0.15s;
+  -webkit-transition: -webkit-box-shadow 0.15s;
+  transition: -webkit-box-shadow 0.15s;
+  transition: box-shadow 0.15s;
+  transition: box-shadow 0.15s, -webkit-box-shadow 0.15s;
 }
 
 .roundedIcon .fa {
@@ -963,19 +1131,30 @@ input[type='password']:focus {
   margin-top: 8px;
 }
 
+.roundedIcon:hover {
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
+}
+
 #footerSocialMedia {
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
   text-align: center;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  margin: 0 20px;
 }
 
 #footerNav {
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
-  margin: 0 auto;
   font-weight: 700;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 #footerNav ul {
@@ -1046,6 +1225,13 @@ input[type='password']:focus {
   .bigTrending .info p {
     font-size: 16px;
   }
+  .video {
+    padding-top: 100%;
+  }
+  .video video {
+    height: 100%;
+    width: auto;
+  }
   .homeSection .max-width .trending .squareTrending {
     padding-top: 50%;
     margin-right: 0;
@@ -1078,6 +1264,9 @@ input[type='password']:focus {
   }
   .homeSection .max-width .trending .squareTrending:nth-child(odd) {
     margin-right: 0;
+    width: 100%;
+  }
+  .homeSection .max-width .skyScraperAdContainer {
     width: 100%;
   }
   .categoryRow .blogsContent {
