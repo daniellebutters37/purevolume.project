@@ -130,20 +130,34 @@ p {
   text-align: center;
 }
 
-h2, h3 {
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+h2, h3, h4 {
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 
 .articleHeading {
   margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 .leftHeading {
   position: relative;
   font-weight: 700;
-  size: 1.5em;
   text-transform: uppercase;
+  font-size: 1.3em;
   text-align: left;
   margin: 0;
   margin-bottom: 20px;
@@ -163,7 +177,7 @@ h2, h3 {
 .centerHeading {
   position: relative;
   font-weight: 700;
-  size: .75em;
+  font-size: 1.2em;
   text-transform: uppercase;
   text-align: center;
   margin: 0;
@@ -1212,17 +1226,15 @@ input[type='password']:focus {
   width: max-content;
   border-radius: 50px;
   position: relative;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  margin-left: calc(100% - 10px);
+  margin-left: 10px;
   -webkit-perspective: 250px;
           perspective: 250px;
 }
 
 #articleSocialMedia .socMediaIcon {
   border-radius: 50px;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: #5FC6C9;
   display: inline-block;
   cursor: pointer;
@@ -1244,7 +1256,7 @@ input[type='password']:focus {
   margin-top: 50%;
   margin-left: 50%;
   color: #ffffff;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -1275,7 +1287,7 @@ input[type='password']:focus {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 900;
   color: #ffffff;
 }
