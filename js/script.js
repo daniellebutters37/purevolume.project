@@ -201,7 +201,7 @@ if(document.querySelector('#videoBox') != null){
         videoBox.className = "open-lightBox";
         video.currentTime = 0;
         video.muted = false;
-        video.loop = false;
+        document.body.style.overflowY = "hidden";
     });
 
     closeBtn.addEventListener('click', function(){
@@ -211,7 +211,7 @@ if(document.querySelector('#videoBox') != null){
             videoBox.className = "";
             video.muted = true;
             video.play;
-            video.loop = true;
+            document.body.style.overflowY = "scroll";
         }
     });
     
@@ -266,14 +266,16 @@ if(document.querySelector('#videoBox') != null){
         }, 200);
     });
 
-    video.addEventListener("ended", function(){
-        if( window.innerHeight == screen.height) {
-            fullscreenToggle();
+    video.addEventListener("timeupdate", function(){
+        if(video.currentTime > (video.duration-.5)){
+            if( window.innerHeight == screen.height) {
+                fullscreenToggle();
+            }
+            videoBox.className = "";
+            video.muted = true;
+            video.play;
+            document.body.style.overflowY = "scroll";
         }
-        videoBox.className = "";
-        video.muted = true;
-        video.play;
-        video.loop = true;
     });
 
     videoFullScreen.addEventListener("click", function(){ fullscreenToggle(); });
@@ -282,11 +284,13 @@ if(document.querySelector('#videoBox') != null){
         if( window.innerHeight == screen.height) {
             videoPlayer.setAttribute('style', '');
             closeFullscreen();
+            videoFullScreen.querySelector('i').className = "fas fa-expand";
         } else {
             videoPlayer.style.width = '100%';
             videoPlayer.style.maxWidth = '100%';
             videoPlayer.style.height = '100%';
             openFullscreen(videoPlayer);
+            videoFullScreen.querySelector('i').className = "fas fa-compress";
         }
     }
 
