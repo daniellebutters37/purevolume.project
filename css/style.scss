@@ -69,6 +69,7 @@ body{
     margin: 0;
     font-family: $fonts;
     overflow-x: hidden;
+    padding-top: 110px;
 }
 body,input,p,a,span{
     font-family: $fonts;
@@ -273,11 +274,18 @@ input[type='password']{
     font-size: 1.5em;
     a{
         padding: 5px 0;
-    }
-    .fa{
-        color: $primaryColour;
-        margin-right: 10px;
-        margin-left: 10px;
+        .fa{
+            color: $primaryColour;
+            margin-right: 10px;
+            margin-left: 10px;
+            @include transition(margin-right .2s, margin-left .2s);
+        }
+        &:hover{
+            .fa{
+                margin-right: 40px;
+                margin-left: 40px;
+            }
+        }
     }
 }
 
@@ -483,9 +491,9 @@ input[type='password']{
 #mainContent{
     position: relative;
     width: 100%;
-    margin-top: 110px;
     min-height: 85vh;
     z-index: 1;
+    perspective: 1000px;
     .storyThumbsLine{
         position: relative;
         height: 130px;
@@ -560,15 +568,13 @@ input[type='password']{
     .max-width{
         display: flex;
         flex-direction: row;
-        margin-bottom: 20px;
-        align-items: center;
         .trending{
-            margin-top: 18px;
             width: 100%;
             position: relative;
             display: flex;
             flex-wrap: wrap;
             height: max-content;
+            margin-top: 18px;
             .squareTrending{
                 position: relative;
                 height: 0;
@@ -577,6 +583,10 @@ input[type='password']{
                 margin-bottom: 10px;
                 width: calc(50% - 15px);
                 margin-right: 15px;
+                @include transition(transform .25s);
+                &:hover{
+                    @include transform(rotateX(8deg));
+                }
                 img{
                     position: absolute;
                     width: 100%;
@@ -613,7 +623,7 @@ input[type='password']{
                         background: transparentize($primaryColour, .15);
                         border: none;
                         position: absolute;
-                        height: 300%;
+                        height: 50vh;
                         color: $secondaryColour;
                         top: 100%;
                         @include transition(top .5s);
@@ -642,21 +652,170 @@ input[type='password']{
         }
     }
 }
-
 .video{
-    width: fit-content;
-    height: max-content;
+    margin-top: 20px;
+    height: 0;
+    overflow: hidden;
+    padding-top: 15%;
     position: relative;
+    margin-left: 50%;
+    width: 100%;
+    max-width: 1200px;
+    @include transform(translate(-50%, 0%));
+    cursor: pointer;
     video{
-        width: 100%;
-    }
-    i{
+        width: 100.5%;
         position: absolute;
-        top:50%;
-        left:50%;
-        color: $primaryColour;
-        font-size: 4em;
+        top: 50%;
+        left: 50%;
         @include transform(translate(-50%,-50%));
+    }
+    .controls{
+        display: none;
+    }
+    .play-icon{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: transparentize($whiteColour, .5);
+        i{
+            position: absolute;
+            top:50%;
+            left:50%;
+            color: $primaryColour;
+            font-size: 7em;
+            @include transform(translate(-50%,-50%));
+            mix-blend-mode: multiply;
+        }
+    }
+}
+.open-lightBox{
+    @include transition(width .5s,height .5s, top .5s, background-color .5s);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    background-color: transparentize($secondaryColour,.2);
+    .video{
+        position: absolute;
+        max-width: 80vw;
+        width: 80vw;
+        height: 45vw;
+        padding-top: 0;
+        margin: 0;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%,-50%));
+        cursor: auto;
+        div{
+            display: none;
+        }
+        button, .volumeButton{
+            min-width: 40px;
+            min-height: 40px;
+            border-radius: 20px;
+            background-color: transparentize($secondaryColour,.8);
+            @include transition(box-shadow .25s);
+            cursor: pointer;
+            i{
+                color: $primaryColour;
+                font-size: 1.5em;
+            }
+            &:hover{
+                background-color: transparentize($secondaryColour,.5);
+                box-shadow: 5px 5px 15px transparentize($secondaryColour,.5);
+            }
+        }
+        .playerClose{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            border-radius: 20px;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 12px;
+            margin: 10px;
+            border-radius: 20px;
+            background: transparentize($whiteColour,.75);
+            outline: none;
+            cursor: pointer;
+            @include transition(box-shadow .25s);
+            &:hover{
+                box-shadow: 5px 5px 15px transparentize($secondaryColour,.5);
+            }
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: $primaryColour;
+            box-shadow: 5px 5px 10px transparentize($secondaryColour,.5);
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: $primaryColour;
+            cursor: pointer;
+        }
+        &:hover{
+            .controls{
+                top: calc(100% - 10px);
+                @include transform(translateY(-100%));
+                @include transition(transform .25s, top .25s);
+            }
+        }
+        .controls{
+            border-radius: 20px;
+            margin: 5px;
+            position: absolute;
+            top: 100%;
+            display: block;
+            z-index: 10;
+            background-color: transparentize($secondaryColour,.5);
+            width: calc(100% - 10px);
+            @include transition(transform .25s 1s, top .25s 1s);
+            .videoControls{
+                display: flex;
+                align-content: stretch;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+            .volumeControl{
+                position: absolute;
+                bottom: 39px;
+                right: 45px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                width: max-content;
+                height: max-content;
+                padding: 5px;
+                @include transform(rotate(-90deg) translateY(75px) translateX(70px));
+                background-color: transparentize($secondaryColour,.5);
+                .slider{
+                    width: 150px;
+                    &:hover{
+                        box-shadow: -5px 5px 15px transparentize($secondaryColour,.5);
+                    }
+                }
+                .slider::-webkit-slider-thumb {
+                    box-shadow: -5px 5px 10px transparentize($secondaryColour,.5);
+                }
+            }
+            .volumeControl:hover, .volumeButton:hover + .volumeControl{
+                display: block;
+            }
+        }
     }
 }
 .advertisements{
@@ -669,6 +828,10 @@ input[type='password']{
     position: relative;
     margin-bottom: 15px;
     width: 100%;
+    @include transition(transform .25s);
+    &:hover{
+        @include transform(rotateX(10deg));
+    }
     img{
         width: 100%;
         position: absolute;
@@ -706,33 +869,68 @@ input[type='password']{
         display: flex;
         flex-direction: row;
         margin-top: 40px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         .blogItem{
-            width: 33%;
-            margin-right: 8px;
             position: relative;
+            height: 0;
+            overflow: hidden;
+            padding-top: 31%;
+            margin-bottom: 10px;
+            width: calc(33% - 8px);
+            margin-right: 15px;
+            @include transition(transform .25s);
             div{
-                position: relative;
+                position: absolute;
                 width: 100%;
                 height: max-content;
+                top:0;
             }
             img{
                 width: 100%;
             }
-            p{
-                width: calc(100% - 25px);
-                border-left: 5px solid $complementaryColour;
-                padding: 10px;
-                font-size: 12px;
-                font-weight: 700;
-                background-color: $whiteColour;
-                box-shadow: 10px 10px 20px rgba(0,0,0,.2);
+            .info{
+                position: absolute;
+                width: 100%;
+                top: 100%;
+                @include transform(translateY(-100%));
+                @include transition(top .5s);
+                p{
+                    position: absolute;
+                    bottom: 0;
+                    width: calc(100% - 25px);
+                    border-left: 5px solid $complementaryColour;
+                    padding: 10px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    background-color: rgba(255,255,255,.95);
+                    box-shadow: 10px 10px 20px rgba(0,0,0,.2);
+                    @include transition(transform .25s);
+                }
+                .details{
+                    background: transparentize($primaryColour, .15);
+                    border: none;
+                    position: absolute;
+                    height: 50vh;
+                    color: $secondaryColour;
+                    top: 100%;
+                    @include transition(top .5s);
+                    text-align: center;
+                    width: calc(100% - 44px);
+                    padding: 40px 22px;
+                    font-size: 18px;
+                }
             }
+                
             :last-child{
                 margin-right: 0px;
             }
+            &:hover{
+                .info{
+                    top: 0%;
+                }
+            }
         }
-        .blogItem[data-reading] div::after{
+        .blogItem[data-reading] div:nth-child(1)::after{
             content: "Continue Reading";
             position: absolute;
             top: 0;
@@ -777,12 +975,24 @@ input[type='password']{
 }
 
 
+.skyScraperAdContainer{
+    width: 13.5%;
+}
+
 .skyScraperAd{
-    width: 120px;
-    height: 600px;
-    background-color: #EEE;
-    margin-bottom: 2em;
-    margin: 2em auto;
+    height: 0;
+    overflow: hidden;
+    padding-top: 500%;
+    position: relative;
+    width: 100%;
+    div{
+        position: absolute;
+        background-color: #EEE;
+        margin-bottom: 2em;
+        width: 100%;
+        height: 100%;
+        top:0;
+    }
 }
 
 .squareAds{
@@ -796,15 +1006,59 @@ input[type='password']{
 // ARTICLE
 
 #articleSocialMedia{
+    margin-top: 40px;
+    padding: 10px;
+    background-color: rgba(0,0,0,.15);
+    width: max-content;
+    border-radius: 50px;
+    position: relative;
+    perspective:250px;
     .socMediaIcon{
-        padding: 7px 40px;
-        border-radius: 20px;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
         background-color: $primaryColour;
-        margin-top: 20px;
         display: inline-block;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px 0px transparentize($secondaryColour, .75);
+        @include transition(box-shadow .25s);
+        &:hover{
+            box-shadow: 0px 10px 20px 0px transparentize($secondaryColour, .75);
+        }
         .fa{
+            margin-top:50%;
+            margin-left:50%;
             color: $whiteColour;
+            font-size: 2em;
+            text-align: center;
+            @include transform(translate(-50%,-50%));
+        }
+    }
+    .tag{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        border-radius: 50px;
+        position: absolute;
+        background-color: $primaryColour;
+        @include transition(transform .25s);
+        transform-origin: 0% 0%;
+        white-space: nowrap;
+        span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%,-50%));
             font-size: 1.5em;
+            font-weight: 900;
+            color: $whiteColour;
+        }
+    }
+    &:hover{
+        .tag{
+            @include transform(rotateX(90deg));
         }
     }
 }
@@ -838,6 +1092,7 @@ input[type='password']{
     }
     .max-width{
         display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -845,23 +1100,30 @@ input[type='password']{
     max-width: 30%;
     padding-top: 40px;
     padding-bottom: 15px;
-    margin: 0 auto;
+    order: 2;
 }
 
 .roundedIcon{
-    margin-top: 30px;
+    padding: 10px;
+    margin: 30px 5px;
     background-color: $whiteColour;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     margin-bottom: 15px;
     display: inline-block;
+    
+    box-shadow: 0px 0px 0px 0px transparentize($secondaryColour, .75);
+    @include transition(box-shadow .15s);
     .fa{
         font-size: 2em;
         cursor: pointer;
         color: $primaryColour;
         text-align: center;
         margin-top: 8px;
+    }
+    &:hover{
+        box-shadow: 0px 10px 20px 0px transparentize($secondaryColour, .75);
     }
 }
 
@@ -870,14 +1132,16 @@ input[type='password']{
     padding-top: 40px;
     padding-bottom: 15px;
     text-align: center;
+    order: 3;
+    margin: 0 20px;
 }
 
 #footerNav{
     max-width: 30%;
     padding-top: 40px;
     padding-bottom: 15px;
-    margin: 0 auto;
     font-weight: 700;
+    order: 1;
     ul {
         margin-top: 60px;
         list-style: none;
@@ -952,6 +1216,20 @@ input[type='password']{
             }
         }
     }
+    .video{
+        padding-top: 100%;
+        video{
+            height: 100%;
+            width: auto;
+        }
+    }
+    .open-lightBox{
+        .video{
+            width: 95vw;
+            max-width: 95vw;
+            height: 95vw;
+        }
+    }
     .homeSection{
         .max-width{
             .trending{
@@ -989,16 +1267,20 @@ input[type='password']{
                     width: 100%;
                 }
             }
+            .skyScraperAdContainer{
+                width: 100%;
+            }
         }
     }
     .categoryRow{
         .blogsContent{
-            display: block;
+            flex-wrap: wrap;
             .blogItem{
                 width: 100%;
-                padding-top: 40px; 
-                position: relative;
+                padding-top: 0;
+                height: max-content;
                 min-height: 40vw;
+                margin-right: 0px;
                 div{
                     position: absolute;
                     width: 100%;
@@ -1008,19 +1290,31 @@ input[type='password']{
                         width: 40%;
                     }
                 }
-                p{
-                    width: calc(70% - 30px);
+                .info{
+                    position: relative;
+                    width: 70%;
                     margin-left: 30%;
-                    font-size: 18px;
-                    font-weight: 200px;
-                    padding: 15px;
-                    z-index: 2;
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                    @include transform(translateY(0%));
+                    p{
+                        position: relative;
+                        width: calc(100% - 30px);
+                        font-size: 18px;
+                        font-weight: 200px;
+                        padding: 15px;
+                        z-index: 2;
+                    }
+                    .details{
+                        display: none;
+                    }
                 }
             }
-            .blogItem[data-reading] div::after{
+            .blogItem[data-reading] div:nth-child(1)::after{
                 position: absolute;
                 width: 60%;
                 padding: 10px;
+                height: 20px;
                 margin-left: 40%;
                 font-size: 16px;
                 text-align: left;

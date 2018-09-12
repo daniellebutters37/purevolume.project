@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: Montserrat, Arial, sans-serif;
   overflow-x: hidden;
+  padding-top: 110px;
 }
 
 body, input, p, a, span {
@@ -249,10 +250,17 @@ input[type='password']:focus {
   padding: 5px 0;
 }
 
-.categoryNav .fa {
+.categoryNav a .fa {
   color: #5FC6C9;
   margin-right: 10px;
   margin-left: 10px;
+  -webkit-transition: margin-right 0.2s, margin-left 0.2s;
+  transition: margin-right 0.2s, margin-left 0.2s;
+}
+
+.categoryNav a:hover .fa {
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
 .photoCredit {
@@ -506,9 +514,10 @@ input[type='password']:focus {
 #mainContent {
   position: relative;
   width: 100%;
-  margin-top: 110px;
   min-height: 85vh;
   z-index: 1;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
 }
 
 #mainContent .storyThumbsLine {
@@ -601,14 +610,9 @@ input[type='password']:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-bottom: 20px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .homeSection .max-width .trending {
-  margin-top: 18px;
   width: 100%;
   position: relative;
   display: -webkit-box;
@@ -619,6 +623,7 @@ input[type='password']:focus {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  margin-top: 18px;
 }
 
 .homeSection .max-width .trending .squareTrending {
@@ -629,6 +634,16 @@ input[type='password']:focus {
   margin-bottom: 10px;
   width: calc(50% - 15px);
   margin-right: 15px;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+.homeSection .max-width .trending .squareTrending:hover {
+  -webkit-transform: rotateX(8deg);
+  transform: rotateX(8deg);
 }
 
 .homeSection .max-width .trending .squareTrending img {
@@ -679,7 +694,7 @@ input[type='password']:focus {
   background: rgba(95, 198, 201, 0.85);
   border: none;
   position: absolute;
-  height: 300%;
+  height: 50vh;
   color: #171522;
   top: 100%;
   -webkit-transition: top 0.5s;
@@ -702,27 +717,228 @@ input[type='password']:focus {
 }
 
 .video {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+  margin-top: 20px;
+  height: 0;
+  overflow: hidden;
+  padding-top: 15%;
   position: relative;
+  margin-left: 50%;
+  width: 100%;
+  max-width: 1200px;
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  cursor: pointer;
 }
 
 .video video {
-  width: 100%;
+  width: 100.5%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.video i {
+.video .controls {
+  display: none;
+}
+
+.video .play-icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.video .play-icon i {
   position: absolute;
   top: 50%;
   left: 50%;
   color: #5FC6C9;
-  font-size: 4em;
+  font-size: 7em;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+}
+
+.open-lightBox {
+  -webkit-transition: width 0.5s, height 0.5s, top 0.5s, background-color 0.5s;
+  transition: width 0.5s, height 0.5s, top 0.5s, background-color 0.5s;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  background-color: rgba(23, 21, 34, 0.8);
+}
+
+.open-lightBox .video {
+  position: absolute;
+  max-width: 80vw;
+  width: 80vw;
+  height: 45vw;
+  padding-top: 0;
+  margin: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: auto;
+}
+
+.open-lightBox .video div {
+  display: none;
+}
+
+.open-lightBox .video button, .open-lightBox .video .volumeButton {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 20px;
+  background-color: rgba(23, 21, 34, 0.2);
+  -webkit-transition: box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  cursor: pointer;
+}
+
+.open-lightBox .video button i, .open-lightBox .video .volumeButton i {
+  color: #5FC6C9;
+  font-size: 1.5em;
+}
+
+.open-lightBox .video button:hover, .open-lightBox .video .volumeButton:hover {
+  background-color: rgba(23, 21, 34, 0.5);
+  -webkit-box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
+          box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .playerClose {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 20px;
+}
+
+.open-lightBox .video .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 12px;
+  margin: 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+}
+
+.open-lightBox .video .slider:hover {
+  -webkit-box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
+          box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #5FC6C9;
+  -webkit-box-shadow: 5px 5px 10px rgba(23, 21, 34, 0.5);
+          box-shadow: 5px 5px 10px rgba(23, 21, 34, 0.5);
+  cursor: pointer;
+}
+
+.open-lightBox .video .slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #5FC6C9;
+  cursor: pointer;
+}
+
+.open-lightBox .video:hover .controls {
+  top: calc(100% - 10px);
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: transform 0.25s, top 0.25s;
+  -webkit-transition: top 0.25s, -webkit-transform 0.25s;
+  transition: top 0.25s, -webkit-transform 0.25s;
+  transition: transform 0.25s, top 0.25s;
+  transition: transform 0.25s, top 0.25s, -webkit-transform 0.25s;
+}
+
+.open-lightBox .video .controls {
+  border-radius: 20px;
+  margin: 5px;
+  position: absolute;
+  top: 100%;
+  display: block;
+  z-index: 10;
+  background-color: rgba(23, 21, 34, 0.5);
+  width: calc(100% - 10px);
+  -webkit-transition: transform 0.25s 1s, top 0.25s 1s;
+  -webkit-transition: top 0.25s 1s, -webkit-transform 0.25s 1s;
+  transition: top 0.25s 1s, -webkit-transform 0.25s 1s;
+  transition: transform 0.25s 1s, top 0.25s 1s;
+  transition: transform 0.25s 1s, top 0.25s 1s, -webkit-transform 0.25s 1s;
+}
+
+.open-lightBox .video .controls .videoControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.open-lightBox .video .controls .volumeControl {
+  position: absolute;
+  bottom: 39px;
+  right: 45px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 5px;
+  -webkit-transform: rotate(-90deg) translateY(75px) translateX(70px);
+  transform: rotate(-90deg) translateY(75px) translateX(70px);
+  background-color: rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .controls .volumeControl .slider {
+  width: 150px;
+}
+
+.open-lightBox .video .controls .volumeControl .slider:hover {
+  -webkit-box-shadow: -5px 5px 15px rgba(23, 21, 34, 0.5);
+          box-shadow: -5px 5px 15px rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .controls .volumeControl .slider::-webkit-slider-thumb {
+  -webkit-box-shadow: -5px 5px 10px rgba(23, 21, 34, 0.5);
+          box-shadow: -5px 5px 10px rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .controls .volumeControl:hover, .open-lightBox .video .controls .volumeButton:hover + .volumeControl {
+  display: block;
 }
 
 .advertisements {
@@ -736,6 +952,16 @@ input[type='password']:focus {
   position: relative;
   margin-bottom: 15px;
   width: 100%;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+.bigTrending:hover {
+  -webkit-transform: rotateX(10deg);
+  transform: rotateX(10deg);
 }
 
 .bigTrending img {
@@ -785,43 +1011,89 @@ input[type='password']:focus {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .categoryRow .blogsContent .blogItem {
-  width: 33%;
-  margin-right: 8px;
   position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-top: 31%;
+  margin-bottom: 10px;
+  width: calc(33% - 8px);
+  margin-right: 15px;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
 }
 
 .categoryRow .blogsContent .blogItem div {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  top: 0;
 }
 
 .categoryRow .blogsContent .blogItem img {
   width: 100%;
 }
 
-.categoryRow .blogsContent .blogItem p {
+.categoryRow .blogsContent .blogItem .info {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+}
+
+.categoryRow .blogsContent .blogItem .info p {
+  position: absolute;
+  bottom: 0;
   width: calc(100% - 25px);
   border-left: 5px solid #fff32b;
   padding: 10px;
   font-size: 12px;
   font-weight: 700;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.95);
   -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
           box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+.categoryRow .blogsContent .blogItem .info .details {
+  background: rgba(95, 198, 201, 0.85);
+  border: none;
+  position: absolute;
+  height: 50vh;
+  color: #171522;
+  top: 100%;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+  text-align: center;
+  width: calc(100% - 44px);
+  padding: 40px 22px;
+  font-size: 18px;
 }
 
 .categoryRow .blogsContent .blogItem :last-child {
   margin-right: 0px;
 }
 
-.categoryRow .blogsContent .blogItem[data-reading] div::after {
+.categoryRow .blogsContent .blogItem:hover .info {
+  top: 0%;
+}
+
+.categoryRow .blogsContent .blogItem[data-reading] div:nth-child(1)::after {
   content: "Continue Reading";
   position: absolute;
   top: 0;
@@ -869,12 +1141,25 @@ input[type='password']:focus {
   padding: 2em;
 }
 
+.skyScraperAdContainer {
+  width: 13.5%;
+}
+
 .skyScraperAd {
-  width: 120px;
-  height: 600px;
+  height: 0;
+  overflow: hidden;
+  padding-top: 500%;
+  position: relative;
+  width: 100%;
+}
+
+.skyScraperAd div {
+  position: absolute;
   background-color: #EEE;
   margin-bottom: 2em;
-  margin: 2em auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
 }
 
 .squareAds {
@@ -885,17 +1170,83 @@ input[type='password']:focus {
   margin: 2em auto;
 }
 
+#articleSocialMedia {
+  margin-top: 40px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.15);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 50px;
+  position: relative;
+  -webkit-perspective: 250px;
+          perspective: 250px;
+}
+
 #articleSocialMedia .socMediaIcon {
-  padding: 7px 40px;
-  border-radius: 20px;
+  border-radius: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #5FC6C9;
-  margin-top: 20px;
   display: inline-block;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+  -webkit-transition: box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+}
+
+#articleSocialMedia .socMediaIcon:hover {
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
 }
 
 #articleSocialMedia .socMediaIcon .fa {
+  margin-top: 50%;
+  margin-left: 50%;
   color: #ffffff;
+  font-size: 2em;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#articleSocialMedia .tag {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 50px;
+  position: absolute;
+  background-color: #5FC6C9;
+  -webkit-transition: transform 0.25s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  white-space: nowrap;
+}
+
+#articleSocialMedia .tag span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 1.5em;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+#articleSocialMedia:hover .tag {
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
 }
 
 .sideBySide {
@@ -936,23 +1287,36 @@ input[type='password']:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #signUp {
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
-  margin: 0 auto;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 
 .roundedIcon {
-  margin-top: 30px;
+  padding: 10px;
+  margin: 30px 5px;
   background-color: #ffffff;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   margin-bottom: 15px;
   display: inline-block;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
+  -webkit-transition: box-shadow 0.15s;
+  -webkit-transition: -webkit-box-shadow 0.15s;
+  transition: -webkit-box-shadow 0.15s;
+  transition: box-shadow 0.15s;
+  transition: box-shadow 0.15s, -webkit-box-shadow 0.15s;
 }
 
 .roundedIcon .fa {
@@ -963,19 +1327,30 @@ input[type='password']:focus {
   margin-top: 8px;
 }
 
+.roundedIcon:hover {
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
+          box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
+}
+
 #footerSocialMedia {
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
   text-align: center;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  margin: 0 20px;
 }
 
 #footerNav {
   max-width: 30%;
   padding-top: 40px;
   padding-bottom: 15px;
-  margin: 0 auto;
   font-weight: 700;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 #footerNav ul {
@@ -1046,6 +1421,18 @@ input[type='password']:focus {
   .bigTrending .info p {
     font-size: 16px;
   }
+  .video {
+    padding-top: 100%;
+  }
+  .video video {
+    height: 100%;
+    width: auto;
+  }
+  .open-lightBox .video {
+    width: 95vw;
+    max-width: 95vw;
+    height: 95vw;
+  }
   .homeSection .max-width .trending .squareTrending {
     padding-top: 50%;
     margin-right: 0;
@@ -1080,14 +1467,21 @@ input[type='password']:focus {
     margin-right: 0;
     width: 100%;
   }
+  .homeSection .max-width .skyScraperAdContainer {
+    width: 100%;
+  }
   .categoryRow .blogsContent {
-    display: block;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .categoryRow .blogsContent .blogItem {
     width: 100%;
-    padding-top: 40px;
-    position: relative;
+    padding-top: 0;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
     min-height: 40vw;
+    margin-right: 0px;
   }
   .categoryRow .blogsContent .blogItem div {
     position: absolute;
@@ -1098,18 +1492,31 @@ input[type='password']:focus {
   .categoryRow .blogsContent .blogItem div img {
     width: 40%;
   }
-  .categoryRow .blogsContent .blogItem p {
-    width: calc(70% - 30px);
+  .categoryRow .blogsContent .blogItem .info {
+    position: relative;
+    width: 70%;
     margin-left: 30%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  .categoryRow .blogsContent .blogItem .info p {
+    position: relative;
+    width: calc(100% - 30px);
     font-size: 18px;
     font-weight: 200px;
     padding: 15px;
     z-index: 2;
   }
-  .categoryRow .blogsContent .blogItem[data-reading] div::after {
+  .categoryRow .blogsContent .blogItem .info .details {
+    display: none;
+  }
+  .categoryRow .blogsContent .blogItem[data-reading] div:nth-child(1)::after {
     position: absolute;
     width: 60%;
     padding: 10px;
+    height: 20px;
     margin-left: 40%;
     font-size: 16px;
     text-align: left;
