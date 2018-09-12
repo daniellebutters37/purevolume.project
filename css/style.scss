@@ -192,9 +192,11 @@ h2,h3{
     text-align: left;
     margin: 0;
     margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
     &::after{
         position: absolute;
-        top: 40px;
+        top: 120%;
         content: '';
         display: block;
         width: 50px;
@@ -584,9 +586,6 @@ input[type='password']{
                 width: calc(50% - 15px);
                 margin-right: 15px;
                 @include transition(transform .25s);
-                &:hover{
-                    @include transform(rotateX(8deg));
-                }
                 img{
                     position: absolute;
                     width: 100%;
@@ -829,9 +828,7 @@ input[type='password']{
     margin-bottom: 15px;
     width: 100%;
     @include transition(transform .25s);
-    &:hover{
-        @include transform(rotateX(10deg));
-    }
+    
     img{
         width: 100%;
         position: absolute;
@@ -917,7 +914,13 @@ input[type='password']{
                     text-align: center;
                     width: calc(100% - 44px);
                     padding: 40px 22px;
-                    font-size: 18px;
+                    font-size: 14px;
+                    font-weight: 900;
+                    div{
+                        position: relative;
+                        font-size: .8em;
+                        width: max-content;
+                    }
                 }
             }
                 
@@ -1004,14 +1007,21 @@ input[type='password']{
 }
 
 // ARTICLE
-
+.articleSection{
+    img {
+        width: 100%;
+    }
+}
 #articleSocialMedia{
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px;
     background-color: rgba(0,0,0,.15);
     width: max-content;
     border-radius: 50px;
     position: relative;
+    @include transform(translateX(-100%));
+    margin-left: calc(100% - 10px);
     perspective:250px;
     .socMediaIcon{
         border-radius: 50px;
@@ -1072,12 +1082,19 @@ input[type='password']{
     }
 }
 
-#mainPhoto{
-    width: 100%;
-}
-
 .articleBody{
     margin-top: 20px;
+    img{
+        width: 100%;
+    }
+}
+.article{
+    padding: 20px;
+    width: calc(100% - 40px);
+    img{
+        width: 100%;
+        max-width: 800px;
+    }
 }
 
 // FOOTER
@@ -1097,7 +1114,7 @@ input[type='password']{
 }
 
 #signUp{
-    max-width: 30%;
+    width: 33%;
     padding-top: 40px;
     padding-bottom: 15px;
     order: 2;
@@ -1128,7 +1145,7 @@ input[type='password']{
 }
 
 #footerSocialMedia{
-    max-width: 30%;
+    width: calc(33% - 40px);
     padding-top: 40px;
     padding-bottom: 15px;
     text-align: center;
@@ -1137,7 +1154,7 @@ input[type='password']{
 }
 
 #footerNav{
-    max-width: 30%;
+    width: 33%;
     padding-top: 40px;
     padding-bottom: 15px;
     font-weight: 700;
@@ -1172,7 +1189,7 @@ input[type='password']{
 @media screen and (max-width: 640px){
 
     #signUp, #footerSocialMedia, #footerNav {
-        max-width: 80%;
+        width: 80%;
         margin-left: 10%;
         padding-top: 20px;
     }
@@ -1225,9 +1242,9 @@ input[type='password']{
     }
     .open-lightBox{
         .video{
-            width: 95vw;
-            max-width: 95vw;
-            height: 95vw;
+            width: 100vw;
+            max-width: 100vw;
+            height: 100vw;
         }
     }
     .homeSection{
@@ -1322,8 +1339,10 @@ input[type='password']{
             }
         }
     }
+    #articleSocialMedia .tag {
+        display: none;
+    }
 }
-
 // ::: Small Mobile :::
 
 @media screen and (max-width: 380px){
