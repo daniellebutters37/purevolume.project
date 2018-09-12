@@ -2,11 +2,11 @@
 /// ::: Header :::
 
 // Main Header
-mainHeader = document.querySelector('#mainHeader');
-logo = document.querySelector('#mainHeader #logo');
-sBox = document.querySelector('#searchBox');
-sInput = document.querySelector('#searchBox input');
-sClose = document.querySelector('#searchCloseBtn');
+var mainHeader = document.querySelector('#mainHeader');
+var logo = document.querySelector('#mainHeader #logo');
+var sBox = document.querySelector('#searchBox');
+var sInput = document.querySelector('#searchBox input');
+var sClose = document.querySelector('#searchCloseBtn');
 
 sBox.addEventListener('click', openSearchBox);
 sClose.addEventListener('click', closeSearchBox);
@@ -60,10 +60,10 @@ function closeSearchBox() {
 
 // ::: Sub Header :::
 
-subHeader = document.querySelector('#subHeader');
-subHeaderMenu = document.querySelector('#subHeader ul');
-leftBtn = document.querySelector('#subHeader #leftScrollButton');
-rightBtn = document.querySelector('#subHeader #rightScrollButton');
+var subHeader = document.querySelector('#subHeader');
+var subHeaderMenu = document.querySelector('#subHeader ul');
+var leftBtn = document.querySelector('#subHeader #leftScrollButton');
+var rightBtn = document.querySelector('#subHeader #rightScrollButton');
 
 
 window.addEventListener('load', function(){
@@ -127,11 +127,11 @@ document.addEventListener("scroll", function(){
 
 // Main Content
 if(document.querySelector('#storyThumbsLine') != null){
-    storyThumbs = document.querySelector('#articleThumbs');
-    storyThumbsRow = document.querySelector('#storyThumbsLine > div');
-    offSet = storyThumbsRow.style.marginLeft;
-    storyThumbsLeftBtn = document.querySelector('#storyThumbsLine #leftStoryScrollButton');
-    storyThumbsRightBtn = document.querySelector('#storyThumbsLine #rightStoryScrollButton');
+    var storyThumbs = document.querySelector('#articleThumbs');
+    var storyThumbsRow = document.querySelector('#storyThumbsLine > div');
+    var offSet = storyThumbsRow.style.marginLeft;
+    var storyThumbsLeftBtn = document.querySelector('#storyThumbsLine #leftStoryScrollButton');
+    var storyThumbsRightBtn = document.querySelector('#storyThumbsLine #rightStoryScrollButton');
     
     storyThumbsLeftBtn.addEventListener('click', function(){
 
@@ -181,17 +181,17 @@ function storyScrollButtons(){
 
 if(document.querySelector('#videoBox') != null){
 
-    videoBox = document.querySelector('#videoBox');
-    playBtn = document.querySelector('#videoBox .play-icon');
-    closeBtn = document.querySelector('#videoBox .playerClose');
-    video = document.querySelector('#videoBox .video video');
-    videoPlayer = document.querySelector('#videoBox .video');
-    playPause = document.querySelector('#videoBox #playPause');
-    volumeButton = document.querySelector('#videoBox .volumeButton');
-    videoSeeker = document.querySelector('#videoBox #videoSeeker');
-    volumeSeekerValue = 100;
-    volumeSeeker = document.querySelector('#videoBox .volumeControl .slider');
-    videoFullScreen = document.querySelector('#videoBox #videoFullScreen');
+    var videoBox = document.querySelector('#videoBox');
+    var playBtn = document.querySelector('#videoBox .play-icon');
+    var closeBtn = document.querySelector('#videoBox .playerClose');
+    var video = document.querySelector('#videoBox .video video');
+    var videoPlayer = document.querySelector('#videoBox .video');
+    var playPause = document.querySelector('#videoBox #playPause');
+    var volumeButton = document.querySelector('#videoBox .volumeButton');
+    var videoSeeker = document.querySelector('#videoBox #videoSeeker');
+    var volumeSeekerValue = 100;
+    var volumeSeeker = document.querySelector('#videoBox .volumeControl .slider');
+    var videoFullScreen = document.querySelector('#videoBox #videoFullScreen');
 
     videoSeekerUpdater = setInterval(() => {
         videoSeeker.value = (video.currentTime*100/video.duration);
