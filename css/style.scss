@@ -201,7 +201,7 @@ h2,h3,h4{
     position: relative;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.3em;
+    font-size: 1.8em;
     text-align: left;
     margin: 0;
     margin-bottom: 20px;
@@ -216,7 +216,14 @@ h2,h3,h4{
         height: 3px; 
     } 
 }
-
+.catName{
+    background-color: $complementaryColour;
+    color: $secondaryColour;
+    padding: .5em 1em;
+    width: max-content;
+    font-weight: 700;
+    font-size: 1.2em;
+}
 .centerHeading {
     position: relative;
     font-weight: 700;
@@ -604,6 +611,10 @@ input[type='password']{
             flex-wrap: wrap;
             height: max-content;
             margin-top: 18px;
+            .smallLogo{
+                width: 80px;
+                height: 80px;
+            }
             .squareTrending{
                 position: relative;
                 height: 0;
@@ -663,10 +674,6 @@ input[type='password']{
                     .info{
                         top: 0%;
                         @include transition(top .5s);
-                        .tag{
-                        }
-                    }
-                    .details{
                     }
                 }
             }
@@ -867,6 +874,11 @@ input[type='password']{
         }
     }
 }
+.sideBySide{
+    .advertisements{
+        width: 22%;
+    }
+}
 .advertisements{
     padding: 18px;
 }
@@ -876,6 +888,7 @@ input[type='password']{
     padding-top: 35%;
     position: relative;
     margin-bottom: 15px;
+    margin-top: 15px;
     width: 100%;
     @include transition(transform .25s);
     
@@ -884,9 +897,21 @@ input[type='password']{
         position: absolute;
         top: 0;
     }
+    &:hover{
+        .info{
+            top: 100%;
+            @include transition(top .5s);
+            p{
+                color: $whiteColour;
+                background-color: transparentize($primaryColour, .35);
+            }
+        }
+    }
     .info{
         position: absolute;
-        bottom: 0px;
+        top: 100%;
+        @include transform(translateY(-100%));
+        @include transition(top .5s);
         span{
             background-color: $complementaryColour;
             font-weight: 600;
@@ -894,7 +919,7 @@ input[type='password']{
             padding: 8px 22px;
         }
         p{
-            background: transparentize($secondaryColour, .35);
+            background-color: transparentize($secondaryColour, .35);
             font-weight: 900;
             text-transform: uppercase;
             width: calc(100% - 1em);
@@ -902,6 +927,21 @@ input[type='password']{
             font-size: 1.5em;
             margin-top: 8px;
             padding:.5em; 
+            @include transition(color .5s, background-color .5s);
+        }
+        .details{
+            background: transparentize($primaryColour, .15);
+            border: none;
+            position: absolute;
+            height: 50vh;
+            color: $secondaryColour;
+            top: 100%;
+            @include transition(top .5s);
+            text-align: center;
+            width: calc(100% - 44px);
+            padding: 40px 22px;
+            font-size: 18px;
+            margin-top: 0;
         }
     }
 }
@@ -926,6 +966,9 @@ input[type='password']{
             width: calc(33% - 8px);
             margin-right: 15px;
             @include transition(transform .25s);
+            &:nth-child(3n){
+                margin-right: 0px;
+            }
             div{
                 position: absolute;
                 width: 100%;
@@ -952,6 +995,8 @@ input[type='password']{
                     background-color: rgba(255,255,255,.95);
                     box-shadow: 10px 10px 20px rgba(0,0,0,.2);
                     @include transition(transform .25s);
+                    text-overflow: ellipsis;
+                    max-height: 60px;
                 }
                 .details{
                     background: transparentize($primaryColour, .15);
@@ -1063,8 +1108,8 @@ input[type='password']{
     }
 }
 #articleSocialMedia{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     padding: 10px;
     background-color: rgba(0,0,0,.15);
     width: max-content;
@@ -1128,11 +1173,13 @@ input[type='password']{
     flex-direction: row;
     .row{
         width: 100%;
+        padding: 0 60px;
     }
 }
 
 .articleBody{
     margin-top: 20px;
+    font-size: 1.2em;
     img{
         width: 100%;
     }
@@ -1142,7 +1189,6 @@ input[type='password']{
     width: calc(100% - 40px);
     img{
         width: 100%;
-        max-width: 800px;
     }
 }
 
@@ -1152,6 +1198,7 @@ input[type='password']{
     width: 100%;
     background-color: $primaryColour;
     color: $whiteColour;
+    margin-top: 50px;
     p {
         margin-top: 60px;
         margin-bottom: 15px;
@@ -1388,6 +1435,7 @@ input[type='password']{
                         font-weight: 200px;
                         padding: 15px;
                         z-index: 2;
+                        max-height: 100%;
                     }
                     .details{
                         display: none;
