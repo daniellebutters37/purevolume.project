@@ -252,7 +252,7 @@ input[type='password']:focus {
   padding: 5px 0;
 }
 
-.categoryNav a .fa {
+.categoryNav a i {
   color: #5FC6C9;
   margin-right: 10px;
   margin-left: 10px;
@@ -260,7 +260,7 @@ input[type='password']:focus {
   transition: margin-right 0.2s, margin-left 0.2s;
 }
 
-.categoryNav a:hover .fa {
+.categoryNav a:hover i {
   margin-right: 40px;
   margin-left: 40px;
 }
@@ -745,18 +745,45 @@ input[type='password']:focus {
   width: 100%;
   height: 100%;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(23, 21, 34, 0.5);
 }
 
-.video .play-icon i {
+.video .play-icon img {
   position: absolute;
+  width: 100px;
+  height: 100px;
   top: 50%;
   left: 50%;
   color: #5FC6C9;
   font-size: 7em;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  mix-blend-mode: multiply;
+}
+
+.video .play-icon i {
+  position: absolute;
+  top: calc(100% - 7px);
+  right: 10px;
+  color: #5FC6C9;
+  font-size: 2em;
+  -webkit-transform: translate(0%, -100%);
+  transform: translate(0%, -100%);
+}
+
+.video .play-icon i:nth-child(2) {
+  right: 50px;
+}
+
+.video .play-icon .slash::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  background-color: #5FC6C9;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .open-lightBox {
@@ -1213,7 +1240,7 @@ input[type='password']:focus {
           box-shadow: 0px 10px 20px 0px rgba(23, 21, 34, 0.25);
 }
 
-#articleSocialMedia .socMediaIcon .fa {
+#articleSocialMedia .socMediaIcon i {
   margin-top: 50%;
   margin-left: 50%;
   color: #ffffff;
@@ -1322,7 +1349,6 @@ input[type='password']:focus {
 
 .roundedIcon {
   padding: 10px;
-  margin: 30px 5px;
   background-color: #ffffff;
   border-radius: 50%;
   width: 50px;
@@ -1338,7 +1364,7 @@ input[type='password']:focus {
   transition: box-shadow 0.15s, -webkit-box-shadow 0.15s;
 }
 
-.roundedIcon .fa {
+.roundedIcon i {
   font-size: 2em;
   cursor: pointer;
   color: #5FC6C9;
@@ -1360,6 +1386,10 @@ input[type='password']:focus {
       -ms-flex-order: 3;
           order: 3;
   margin: 0 20px;
+}
+
+#footerSocialMedia h3 {
+  margin-bottom: 50px;
 }
 
 #footerNav {
