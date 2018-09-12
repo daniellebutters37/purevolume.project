@@ -256,27 +256,44 @@ input[type='password']:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 1.5em;
 }
 
 .categoryNav a {
-  padding: 5px 0;
+  padding: 10px;
+  background-color: rgba(95, 198, 201, 0.75);
+  color: #ffffff;
+}
+
+.categoryNav a:hover {
+  background-color: #5FC6C9;
+}
+
+.categoryNav a:hover i {
+  color: #fff32b;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.categoryNav a:nth-child(1) {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.categoryNav a:last-child {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .categoryNav a i {
-  color: #5FC6C9;
+  color: #ffffff;
   margin-right: 10px;
   margin-left: 10px;
   -webkit-transition: margin-right 0.2s, margin-left 0.2s;
   transition: margin-right 0.2s, margin-left 0.2s;
-}
-
-.categoryNav a:hover i {
-  margin-right: 40px;
-  margin-left: 40px;
 }
 
 .photoCredit {
@@ -1531,6 +1548,17 @@ input[type='password']:focus {
   .homeSection .max-width .skyScraperAdContainer {
     width: calc(100% - 38px);
   }
+  .categoryNav {
+    font-size: 1.2em;
+  }
+  .categoryNav a:hover i {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  .categoryNav a i {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   .categoryRow .blogsContent {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -1589,6 +1617,9 @@ input[type='password']:focus {
 }
 
 @media screen and (max-width: 380px) {
+  .categoryNav {
+    font-size: .8em;
+  }
   #mainHeader #logo {
     height: 20px;
     top: 10px;

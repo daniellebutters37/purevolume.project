@@ -285,21 +285,35 @@ input[type='password']{
     margin-top: 40px;
     margin-bottom: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 1.5em;
     a{
-        padding: 5px 0;
-        i{
-            color: $primaryColour;
-            margin-right: 10px;
-            margin-left: 10px;
-            @include transition(margin-right .2s, margin-left .2s);
-        }
+        padding: 10px;
+        background-color: transparentize($primaryColour, .25);
+        color: $whiteColour;
         &:hover{
+            background-color: $primaryColour;
             i{
+                color: $complementaryColour;
                 margin-right: 40px;
                 margin-left: 40px;
             }
+        }
+        //border-right: 5px solid $complementaryColour;
+        &:nth-child(1){
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        &:last-child{
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            //border-right: 0px solid $complementaryColour;
+        }
+        i{
+            color: $whiteColour;
+            margin-right: 10px;
+            margin-left: 10px;
+            @include transition(margin-right .2s, margin-left .2s);
         }
     }
 }
@@ -1327,6 +1341,21 @@ input[type='password']{
             }
         }
     }
+    .categoryNav{
+        font-size: 1.2em;
+        a{
+            &:hover{
+                i{
+                    margin-right: 15px;
+                    margin-left: 15px;
+                }
+            }
+            i{
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        }
+    }
     .categoryRow{
         .blogsContent{
             flex-wrap: wrap;
@@ -1385,6 +1414,9 @@ input[type='password']{
 
 @media screen and (max-width: 380px){
     // Header
+    .categoryNav{
+        font-size: .8em;
+    }
 
     #mainHeader{
         #logo{
