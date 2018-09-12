@@ -1034,13 +1034,12 @@ input[type='password']{
     width: max-content;
     border-radius: 50px;
     position: relative;
-    @include transform(translateX(-100%));
-    margin-left: calc(100% - 10px);
+    margin-left: 10px;
     perspective:250px;
     .socMediaIcon{
         border-radius: 50px;
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         background-color: $primaryColour;
         display: inline-block;
         cursor: pointer;
@@ -1053,7 +1052,7 @@ input[type='password']{
             margin-top:50%;
             margin-left:50%;
             color: $whiteColour;
-            font-size: 2em;
+            font-size: 1.5em;
             text-align: center;
             @include transform(translate(-50%,-50%));
         }
@@ -1075,7 +1074,7 @@ input[type='password']{
             top: 50%;
             left: 50%;
             @include transform(translate(-50%,-50%));
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: 900;
             color: $whiteColour;
         }
