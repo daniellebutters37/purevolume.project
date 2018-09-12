@@ -1285,7 +1285,7 @@ input[type='password']{
                 }
             }
             .skyScraperAdContainer{
-                width: 100%;
+                width: calc(100% - 38px);
             }
         }
     }

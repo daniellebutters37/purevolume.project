@@ -1487,7 +1487,7 @@ input[type='password']:focus {
     width: 100%;
   }
   .homeSection .max-width .skyScraperAdContainer {
-    width: 100%;
+    width: calc(100% - 38px);
   }
   .categoryRow .blogsContent {
     -ms-flex-wrap: wrap;
