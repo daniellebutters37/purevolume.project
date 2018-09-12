@@ -178,3 +178,139 @@ function storyScrollButtons(){
         storyThumbsRow.style.left = "0px";
     }
 }
+
+if(document.querySelector('#videoBox') != null){
+
+    videoBox = document.querySelector('#videoBox');
+    playBtn = document.querySelector('#videoBox .play-icon');
+    closeBtn = document.querySelector('#videoBox .playerClose');
+    video = document.querySelector('#videoBox .video video');
+    videoPlayer = document.querySelector('#videoBox .video');
+    playPause = document.querySelector('#videoBox #playPause');
+    volumeButton = document.querySelector('#videoBox .volumeButton');
+    videoSeeker = document.querySelector('#videoBox #videoSeeker');
+    volumeSeekerValue = 100;
+    volumeSeeker = document.querySelector('#videoBox .volumeControl .slider');
+    videoFullScreen = document.querySelector('#videoBox #videoFullScreen');
+
+    videoSeekerUpdater = setInterval(() => {
+        videoSeeker.value = (video.currentTime*100/video.duration);
+    }, 200);
+
+    playBtn.addEventListener('click', function(){
+        videoBox.className = "open-lightBox";
+        video.currentTime = 0;
+        video.muted = false;
+        video.loop = false;
+    });
+
+    closeBtn.addEventListener('click', function(){
+        if( window.innerHeight == screen.height) {
+            fullscreenToggle();
+        } else {
+            videoBox.className = "";
+            video.muted = true;
+            video.play;
+            video.loop = true;
+        }
+    });
+    
+    playPause.addEventListener("click", function(){
+        if(!video.paused){
+            video.pause();
+            playPause.querySelector('i').className = "fa fa-play";
+        } else {
+            video.play();
+            playPause.querySelector('i').className = "fa fa-pause";
+        }
+        videoSeeker.value = (video.currentTime*100/video.duration);
+    });
+
+    volumeButton.addEventListener("click", function(){
+        if(video.muted){
+            video.muted = false;
+            volumeButton.querySelector('i').className = "fas fa-volume-up";
+            volumeSeeker.value = volumeSeekerValue;
+        } else {
+            volumeSeekerValue = volumeSeeker.value;
+            volumeSeeker.value = 0;
+            video.muted = true;
+            volumeButton.querySelector('i').className = "fas fa-volume-off";
+        }
+    });
+
+    volumeSeeker.addEventListener("mousemove", function(){
+        console.log(volumeSeeker.value);
+        if(volumeSeeker.value == 1){
+            video.muted = true;
+            volumeButton.querySelector('i').className = "fas fa-volume-off";
+        } else {
+            video.volume = (volumeSeeker.value/100);
+            video.muted = false;
+            volumeButton.querySelector('i').className = "fas fa-volume-up";
+        }
+    });
+
+    videoSeeker.addEventListener("mousedown", function(){
+        clearInterval(videoSeekerUpdater);
+        setTimeout(() => {
+            video.currentTime = (videoSeeker.value*video.duration)/100;
+            videoSeeker.value = (video.currentTime*100/video.duration);
+        }, 100);
+    });
+    videoSeeker.addEventListener("mouseup", function(){
+        video.currentTime = (videoSeeker.value*video.duration)/100;
+        videoSeeker.value = (video.currentTime*100/video.duration);
+        videoSeekerUpdater = setInterval(() => {
+            videoSeeker.value = (video.currentTime*100/video.duration);
+        }, 200);
+    });
+
+    video.addEventListener("ended", function(){
+        if( window.innerHeight == screen.height) {
+            fullscreenToggle();
+        }
+        videoBox.className = "";
+        video.muted = true;
+        video.play;
+        video.loop = true;
+    });
+
+    videoFullScreen.addEventListener("click", function(){ fullscreenToggle(); });
+    
+    function fullscreenToggle(){
+        if( window.innerHeight == screen.height) {
+            videoPlayer.setAttribute('style', '');
+            closeFullscreen();
+        } else {
+            videoPlayer.style.width = '100%';
+            videoPlayer.style.maxWidth = '100%';
+            videoPlayer.style.height = '100%';
+            openFullscreen(videoPlayer);
+        }
+    }
+
+    function openFullscreen(elem) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+    }
+    
+    function closeFullscreen() {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+    }
+}

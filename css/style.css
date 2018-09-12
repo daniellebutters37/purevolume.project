@@ -784,27 +784,35 @@ input[type='password']:focus {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  cursor: auto;
 }
 
 .open-lightBox .video div {
   display: none;
 }
 
-.open-lightBox .video button {
+.open-lightBox .video button, .open-lightBox .video .volumeButton {
   min-width: 40px;
   min-height: 40px;
   border-radius: 20px;
   background-color: rgba(23, 21, 34, 0.2);
+  -webkit-transition: box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
   cursor: pointer;
 }
 
-.open-lightBox .video button i {
+.open-lightBox .video button i, .open-lightBox .video .volumeButton i {
   color: #5FC6C9;
   font-size: 1.5em;
 }
 
-.open-lightBox .video button:hover {
+.open-lightBox .video button:hover, .open-lightBox .video .volumeButton:hover {
   background-color: rgba(23, 21, 34, 0.5);
+  -webkit-box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
+          box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
 }
 
 .open-lightBox .video .playerClose {
@@ -819,9 +827,18 @@ input[type='password']:focus {
   width: 100%;
   height: 12px;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.25);
   outline: none;
+  cursor: pointer;
+  -webkit-transition: box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+}
+
+.open-lightBox .video .slider:hover {
   -webkit-box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
           box-shadow: 5px 5px 15px rgba(23, 21, 34, 0.5);
 }
@@ -846,17 +863,31 @@ input[type='password']:focus {
   cursor: pointer;
 }
 
+.open-lightBox .video:hover .controls {
+  top: calc(100% - 10px);
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: transform 0.25s, top 0.25s;
+  -webkit-transition: top 0.25s, -webkit-transform 0.25s;
+  transition: top 0.25s, -webkit-transform 0.25s;
+  transition: transform 0.25s, top 0.25s;
+  transition: transform 0.25s, top 0.25s, -webkit-transform 0.25s;
+}
+
 .open-lightBox .video .controls {
   border-radius: 20px;
   margin: 5px;
   position: absolute;
-  top: calc(100% - 10px);
+  top: 100%;
   display: block;
   z-index: 10;
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
   background-color: rgba(23, 21, 34, 0.5);
   width: calc(100% - 10px);
+  -webkit-transition: transform 0.25s 1s, top 0.25s 1s;
+  -webkit-transition: top 0.25s 1s, -webkit-transform 0.25s 1s;
+  transition: top 0.25s 1s, -webkit-transform 0.25s 1s;
+  transition: transform 0.25s 1s, top 0.25s 1s;
+  transition: transform 0.25s 1s, top 0.25s 1s, -webkit-transform 0.25s 1s;
 }
 
 .open-lightBox .video .controls .videoControls {
@@ -875,7 +906,11 @@ input[type='password']:focus {
 }
 
 .open-lightBox .video .controls .volumeControl {
-  border-radius: 20px;
+  position: absolute;
+  bottom: 39px;
+  right: 45px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -883,13 +918,27 @@ input[type='password']:focus {
   height: -moz-max-content;
   height: max-content;
   padding: 5px;
+  -webkit-transform: rotate(-90deg) translateY(75px) translateX(70px);
+  transform: rotate(-90deg) translateY(75px) translateX(70px);
   background-color: rgba(23, 21, 34, 0.5);
 }
 
 .open-lightBox .video .controls .volumeControl .slider {
   width: 150px;
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+}
+
+.open-lightBox .video .controls .volumeControl .slider:hover {
+  -webkit-box-shadow: -5px 5px 15px rgba(23, 21, 34, 0.5);
+          box-shadow: -5px 5px 15px rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .controls .volumeControl .slider::-webkit-slider-thumb {
+  -webkit-box-shadow: -5px 5px 10px rgba(23, 21, 34, 0.5);
+          box-shadow: -5px 5px 10px rgba(23, 21, 34, 0.5);
+}
+
+.open-lightBox .video .controls .volumeControl:hover, .open-lightBox .video .controls .volumeButton:hover + .volumeControl {
+  display: block;
 }
 
 .advertisements {

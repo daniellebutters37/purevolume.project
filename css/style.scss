@@ -708,14 +708,16 @@ input[type='password']{
         left: 50%;
         top: 50%;
         @include transform(translate(-50%,-50%));
+        cursor: auto;
         div{
             display: none;
         }
-        button{
+        button, .volumeButton{
             min-width: 40px;
             min-height: 40px;
             border-radius: 20px;
             background-color: transparentize($secondaryColour,.8);
+            @include transition(box-shadow .25s);
             cursor: pointer;
             i{
                 color: $primaryColour;
@@ -723,6 +725,7 @@ input[type='password']{
             }
             &:hover{
                 background-color: transparentize($secondaryColour,.5);
+                box-shadow: 5px 5px 15px transparentize($secondaryColour,.5);
             }
         }
         .playerClose{
@@ -736,10 +739,14 @@ input[type='password']{
             width: 100%;
             height: 12px;
             margin: 10px;
-            border-radius: 5px;
+            border-radius: 20px;
             background: transparentize($whiteColour,.75);
             outline: none;
-            box-shadow: 5px 5px 15px transparentize($secondaryColour,.5);
+            cursor: pointer;
+            @include transition(box-shadow .25s);
+            &:hover{
+                box-shadow: 5px 5px 15px transparentize($secondaryColour,.5);
+            }
         }
         
         .slider::-webkit-slider-thumb {
@@ -760,16 +767,23 @@ input[type='password']{
             background: $primaryColour;
             cursor: pointer;
         }
+        &:hover{
+            .controls{
+                top: calc(100% - 10px);
+                @include transform(translateY(-100%));
+                @include transition(transform .25s, top .25s);
+            }
+        }
         .controls{
             border-radius: 20px;
             margin: 5px;
             position: absolute;
-            top: calc(100% - 10px);
+            top: 100%;
             display: block;
             z-index: 10;
-            @include transform(translateY(-100%));
             background-color: transparentize($secondaryColour,.5);
             width: calc(100% - 10px);
+            @include transition(transform .25s 1s, top .25s 1s);
             .videoControls{
                 display: flex;
                 align-content: stretch;
@@ -778,15 +792,28 @@ input[type='password']{
                 width: 100%;
             }
             .volumeControl{
-                border-radius: 20px;
+                position: absolute;
+                bottom: 39px;
+                right: 45px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
                 width: max-content;
                 height: max-content;
                 padding: 5px;
+                @include transform(rotate(-90deg) translateY(75px) translateX(70px));
                 background-color: transparentize($secondaryColour,.5);
                 .slider{
                     width: 150px;
-                    @include transform(rotate(-90deg));
+                    &:hover{
+                        box-shadow: -5px 5px 15px transparentize($secondaryColour,.5);
+                    }
                 }
+                .slider::-webkit-slider-thumb {
+                    box-shadow: -5px 5px 10px transparentize($secondaryColour,.5);
+                }
+            }
+            .volumeControl:hover, .volumeButton:hover + .volumeControl{
+                display: block;
             }
         }
     }

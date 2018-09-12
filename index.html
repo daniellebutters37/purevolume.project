@@ -62,23 +62,23 @@
             <button id="leftScrollButton"><i class="fa fa-chevron-left"></i></button>
             <button id="rightScrollButton"><i class="fa fa-chevron-right"></i></button>
         </header>
-        <section class="">
+        <section id="videoBox">
             <h2 class="hidden">Promotional Video</h2>
             <div class="video">
                 <video autoplay muted loop>
-                    <source src="videos/video720p.mp4" type="video/mp4">
+                    <source src="videos/pure_volume_promo_compressed.mp4" type="video/mp4">
                 </video>
                 <div class="play-icon"><i class="fa fa-play-circle"></i></div>
                 <button class="playerClose"><i class="fa fa-times"></i></button>
                 <div class="controls">
                     <div class="videoControls">
-                        <button><i class="fa fa-pause"></i></button>
-                        <input class="slider" type="range" min="1" max="100" value="0">
-                        <button><i class="fa fa-volume-up"></i></button>
-                        <button><i class="fa fa-expand"></i></button>
-                    </div>
-                    <div class="volumeControl">
-                        <input class="slider" type="range" min="1" max="100" value="0">
+                        <button id="playPause"><i class="fa fa-pause"></i></button>
+                        <input id="videoSeeker" class="slider" type="range" min="1" max="100" value="0">
+                        <button class="volumeButton"><i class="fa fa-volume-up"></i></button>
+                        <div class="volumeControl">
+                            <input class="slider" type="range" min="1" max="100" value="100">
+                        </div>
+                        <button id="videoFullScreen"><i class="fa fa-expand"></i></button>
                     </div>
                 </div>
             </div>
@@ -279,9 +279,9 @@
                 
                 <div id="footerSocialMedia">
                     <h3 class="centerHeading invertColourTxt">Connect with us</h3>
-                    <a href="https://twitter.com/"><div class="roundedIcon"><i class="fa fa-twitter"></i></div></a>
-                    <a href="https://www.instagram.com"><div class="roundedIcon"><i class="fa fa-instagram"></i></div></a>
-                    <a href="https://www.facebook.com"><div class="roundedIcon"><i class="fa fa-facebook-f"></i></div></a>
+                    <a href="https://twitter.com/"><div class="roundedIcon"><i class="fab fa-twitter"></i></div></a>
+                    <a href="https://www.instagram.com"><div class="roundedIcon"><i class="fab fa-instagram"></i></div></a>
+                    <a href="https://www.facebook.com"><div class="roundedIcon"><i class="fab fa-facebook-f"></i></div></a>
                 </div>
 
                 <div id="footerNav">
