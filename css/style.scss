@@ -1074,13 +1074,14 @@ input[type='password']{
 
 
 .skyScraperAdContainer{
-    width: 13.5%;
+    width: 18%;
 }
 
 .skyScraperAd{
     height: 0;
+    margin-bottom: 10px;
     overflow: hidden;
-    padding-top: 500%;
+    padding-top: 375%;
     position: relative;
     width: 100%;
     div{
@@ -1091,14 +1092,22 @@ input[type='password']{
         height: 100%;
         top:0;
     }
+    img{
+        width: 100%;
+    }
 }
 
 .squareAds{
-    width: 250px;
-    height: 250px;
+    width: 25vw;
+    height: 25vw;
+    max-width: 250px;
+    max-height: 250px;
     background-color: #EEE;
     margin-bottom: 2em;
     margin: 2em auto;
+    img{
+        width: 100%;
+    }
 }
 
 // ARTICLE
@@ -1218,22 +1227,21 @@ input[type='password']{
 
 .roundedIcon{
     padding: 10px;
-    // margin: 30px 5px;
     background-color: $whiteColour;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 37px;
+    height: 37px;
     margin-bottom: 15px;
     display: inline-block;
     
     box-shadow: 0px 0px 0px 0px transparentize($secondaryColour, .75);
     @include transition(box-shadow .15s);
     i{
-        font-size: 2em;
+        font-size: 1.6em;
         cursor: pointer;
         color: $primaryColour;
         text-align: center;
-        margin-top: 8px;
+        margin-top: 6px;
     }
     &:hover{
         box-shadow: 0px 10px 20px 0px transparentize($secondaryColour, .75);
@@ -1258,14 +1266,44 @@ input[type='password']{
     padding-bottom: 15px;
     font-weight: 700;
     order: 1;
-    ul {
+    @include transition(left .5s);
+    ul{
         margin-top: 60px;
         list-style: none;
         li{
+            width: max-content;
+            position: relative;
             margin-top: 20px;
             cursor: pointer;
             :nth-child(1){
                 margin-top: 0;
+            }
+            &::after{
+                margin-top: 7px;
+                height: 4px;
+                content: '';
+                display: block;
+                width: 0;
+                background: $whiteColour; 
+                transition: width .3s;
+            }
+            &:hover::after{
+                width: 100%;
+                transition: width .3s;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 0;
+                height: 4px;
+                background: $whiteColour; 
+                transition: width .3s;
+                position: absolute;
+                top: 115%;
+            }
+            &:hover::before{
+                width: 40%;
+                transition: width .3s;
             } 
         }
     }
@@ -1295,7 +1333,6 @@ input[type='password']{
     #signUp {
         padding-top: 40px;
     }
-
     #mainFooter{
         .max-width{
             display: block;
@@ -1387,6 +1424,10 @@ input[type='password']{
                 width: calc(100% - 38px);
             }
         }
+    }
+    .squareAds{
+        width: 250px;
+        height: 250px;
     }
     .categoryNav{
         font-size: 1.2em;

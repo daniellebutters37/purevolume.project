@@ -1261,13 +1261,14 @@ input[type='password']:focus {
 }
 
 .skyScraperAdContainer {
-  width: 13.5%;
+  width: 18%;
 }
 
 .skyScraperAd {
   height: 0;
+  margin-bottom: 10px;
   overflow: hidden;
-  padding-top: 500%;
+  padding-top: 375%;
   position: relative;
   width: 100%;
 }
@@ -1281,12 +1282,22 @@ input[type='password']:focus {
   top: 0;
 }
 
+.skyScraperAd img {
+  width: 100%;
+}
+
 .squareAds {
-  width: 250px;
-  height: 250px;
+  width: 25vw;
+  height: 25vw;
+  max-width: 250px;
+  max-height: 250px;
   background-color: #EEE;
   margin-bottom: 2em;
   margin: 2em auto;
+}
+
+.squareAds img {
+  width: 100%;
 }
 
 .articleSection img {
@@ -1442,8 +1453,8 @@ input[type='password']:focus {
   padding: 10px;
   background-color: #ffffff;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 37px;
+  height: 37px;
   margin-bottom: 15px;
   display: inline-block;
   -webkit-box-shadow: 0px 0px 0px 0px rgba(23, 21, 34, 0.25);
@@ -1456,11 +1467,11 @@ input[type='password']:focus {
 }
 
 .roundedIcon i {
-  font-size: 2em;
+  font-size: 1.6em;
   cursor: pointer;
   color: #5FC6C9;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .roundedIcon:hover {
@@ -1491,6 +1502,8 @@ input[type='password']:focus {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
 }
 
 #footerNav ul {
@@ -1499,12 +1512,51 @@ input[type='password']:focus {
 }
 
 #footerNav ul li {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
   margin-top: 20px;
   cursor: pointer;
 }
 
 #footerNav ul li :nth-child(1) {
   margin-top: 0;
+}
+
+#footerNav ul li::after {
+  margin-top: 7px;
+  height: 4px;
+  content: '';
+  display: block;
+  width: 0;
+  background: #ffffff;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+}
+
+#footerNav ul li:hover::after {
+  width: 100%;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+}
+
+#footerNav ul li::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background: #ffffff;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+  position: absolute;
+  top: 115%;
+}
+
+#footerNav ul li:hover::before {
+  width: 40%;
+  -webkit-transition: width .3s;
+  transition: width .3s;
 }
 
 #copyrightInfo {
@@ -1609,6 +1661,10 @@ input[type='password']:focus {
   }
   .homeSection .max-width .skyScraperAdContainer {
     width: calc(100% - 38px);
+  }
+  .squareAds {
+    width: 250px;
+    height: 250px;
   }
   .categoryNav {
     font-size: 1.2em;
