@@ -1088,7 +1088,7 @@ input[type='password']{
                 margin-top: 40px;
             }
             .advertisements{
-                width: 100%;
+                width: calc(100% - 5em);
             }
         }
         .advertisements{
