@@ -1305,6 +1305,10 @@ input[type='password']:focus {
   margin-top: 40px;
 }
 
+.categorySection .max-width .categoryContent .advertisements {
+  width: 100%;
+}
+
 .categorySection .max-width .advertisements {
   padding: 2.5em;
 }
