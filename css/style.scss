@@ -974,13 +974,14 @@ input[type='password']{
         flex-direction: row;
         margin-top: 40px;
         margin-bottom: 20px;
+        flex-wrap: wrap;
         .blogItem{
             position: relative;
             height: 0;
             overflow: hidden;
             padding-top: 31%;
             margin-bottom: 10px;
-            width: calc(33% - 8px);
+            width: calc(33% - 9px);
             margin-right: 15px;
             @include transition(transform .25s);
             &:nth-child(3n){
@@ -1068,13 +1069,17 @@ input[type='password']{
 // category
 
 .categorySection{
+    max-width: 1200px;
+    margin: 0 auto;
+    h2{
+        margin-top: 2em;
+    }
     .max-width{
         display: flex;
         flex-direction: row;
         .categoryContent{
-            margin: 1.2em;
-            margin-top: 2.5em;
-            width: calc(100% - 1.2em);
+            width: calc(100% - 2.4em);
+            margin-left: 1.2em;
             position: relative;
             img{
                 width: 100%;
@@ -1084,7 +1089,7 @@ input[type='password']{
             }
         }
         .advertisements{
-            padding: 2em;
+            padding: 2.5em;
         }
     }
 }
