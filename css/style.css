@@ -157,7 +157,7 @@ h2, h3, h4 {
   position: relative;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 1.3em;
+  font-size: 1.8em;
   text-align: left;
   margin: 0;
   margin-bottom: 20px;
@@ -172,6 +172,17 @@ h2, h3, h4 {
   display: block;
   width: 50px;
   height: 3px;
+}
+
+.catName {
+  background-color: #fff32b;
+  color: #171522;
+  padding: .5em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 700;
+  font-size: 1.2em;
 }
 
 .centerHeading {
@@ -643,6 +654,9 @@ input[type='password']:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .homeSection .max-width .trending {
@@ -657,6 +671,11 @@ input[type='password']:focus {
   height: -moz-max-content;
   height: max-content;
   margin-top: 18px;
+}
+
+.homeSection .max-width .trending .smallLogo {
+  width: 80px;
+  height: 80px;
 }
 
 .homeSection .max-width .trending .squareTrending {
@@ -744,6 +763,10 @@ input[type='password']:focus {
   width: 50%;
 }
 
+.homeSection .advertisements {
+  padding: 0 18px;
+}
+
 .video {
   margin-top: 20px;
   height: 0;
@@ -771,7 +794,7 @@ input[type='password']:focus {
   display: none;
 }
 
-.video .play-icon {
+.video .overlyIcon {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -779,19 +802,51 @@ input[type='password']:focus {
   background-color: rgba(23, 21, 34, 0.5);
 }
 
-.video .play-icon img {
+.video .overlyIcon .animatedLogo {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   top: 50%;
   left: 50%;
-  color: #5FC6C9;
-  font-size: 7em;
+  background-color: #5FC6C9;
+  border-radius: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
-.video .play-icon i {
+.video .overlyIcon .animatedLogo div {
+  background-color: #ffffff;
+  position: absolute;
+  width: 5px;
+  height: 40px;
+  top: 60px;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  -webkit-transition: height 0.2s;
+  transition: height 0.2s;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(1) {
+  left: 20px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(2) {
+  left: 30px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(3) {
+  left: 40px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(4) {
+  left: 50px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(5) {
+  left: 60px;
+}
+
+.video .overlyIcon i {
   position: absolute;
   top: calc(100% - 7px);
   right: 10px;
@@ -801,11 +856,11 @@ input[type='password']:focus {
   transform: translate(0%, -100%);
 }
 
-.video .play-icon i:nth-child(2) {
+.video .overlyIcon .left {
   right: 50px;
 }
 
-.video .play-icon .slash::after {
+.video .overlyIcon .slash::after {
   content: '';
   position: absolute;
   width: 5px;
@@ -996,6 +1051,10 @@ input[type='password']:focus {
   display: block;
 }
 
+.sideBySide .advertisements {
+  width: 22%;
+}
+
 .advertisements {
   padding: 18px;
 }
@@ -1006,6 +1065,7 @@ input[type='password']:focus {
   padding-top: 35%;
   position: relative;
   margin-bottom: 15px;
+  margin-top: 15px;
   width: 100%;
   -webkit-transition: transform 0.25s;
   -webkit-transition: -webkit-transform 0.25s;
@@ -1020,9 +1080,24 @@ input[type='password']:focus {
   top: 0;
 }
 
+.bigTrending:hover .info {
+  top: 100%;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+}
+
+.bigTrending:hover .info p {
+  color: #ffffff;
+  background-color: rgba(95, 198, 201, 0.65);
+}
+
 .bigTrending .info {
   position: absolute;
-  bottom: 0px;
+  top: 100%;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
 }
 
 .bigTrending .info span {
@@ -1033,7 +1108,7 @@ input[type='password']:focus {
 }
 
 .bigTrending .info p {
-  background: rgba(23, 21, 34, 0.65);
+  background-color: rgba(23, 21, 34, 0.65);
   font-weight: 900;
   text-transform: uppercase;
   width: calc(100% - 1em);
@@ -1041,6 +1116,24 @@ input[type='password']:focus {
   font-size: 1.5em;
   margin-top: 8px;
   padding: .5em;
+  -webkit-transition: color 0.5s, background-color 0.5s;
+  transition: color 0.5s, background-color 0.5s;
+}
+
+.bigTrending .info .details {
+  background: rgba(95, 198, 201, 0.85);
+  border: none;
+  position: absolute;
+  height: 50vh;
+  color: #171522;
+  top: 100%;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+  text-align: center;
+  width: calc(100% - 44px);
+  padding: 40px 22px;
+  font-size: 18px;
+  margin-top: 0;
 }
 
 .categoryRow {
@@ -1077,6 +1170,10 @@ input[type='password']:focus {
   transition: -webkit-transform 0.25s;
   transition: transform 0.25s;
   transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+.categoryRow .blogsContent .blogItem:nth-child(3n) {
+  margin-right: 0px;
 }
 
 .categoryRow .blogsContent .blogItem div {
@@ -1118,6 +1215,8 @@ input[type='password']:focus {
   transition: -webkit-transform 0.25s;
   transition: transform 0.25s;
   transition: transform 0.25s, -webkit-transform 0.25s;
+  text-overflow: ellipsis;
+  max-height: 60px;
 }
 
 .categoryRow .blogsContent .blogItem .info .details {
@@ -1245,8 +1344,8 @@ input[type='password']:focus {
 }
 
 #articleSocialMedia {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.15);
   width: -webkit-max-content;
@@ -1337,11 +1436,13 @@ input[type='password']:focus {
 }
 
 .sideBySide .row {
-  width: 100%;
+  width: calc(100% - 120px);
+  padding: 0 60px;
 }
 
 .articleBody {
   margin-top: 20px;
+  font-size: 1.2em;
 }
 
 .articleBody img {
@@ -1355,13 +1456,13 @@ input[type='password']:focus {
 
 .article img {
   width: 100%;
-  max-width: 800px;
 }
 
 #mainFooter {
   width: 100%;
   background-color: #5FC6C9;
   color: #ffffff;
+  margin-top: 50px;
 }
 
 #mainFooter p {
@@ -1653,6 +1754,7 @@ input[type='password']:focus {
     font-weight: 200px;
     padding: 15px;
     z-index: 2;
+    max-height: 100%;
   }
   .categoryRow .blogsContent .blogItem .info .details {
     display: none;
@@ -1669,6 +1771,13 @@ input[type='password']:focus {
   }
   #articleSocialMedia .tag {
     display: none;
+  }
+  .sideBySide .row {
+    width: calc(100% - 20px);
+    padding: 0 10px;
+  }
+  .sideBySide .advertisements {
+    width: calc(100% - 36px);
   }
 }
 
