@@ -654,6 +654,9 @@ input[type='password']:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .homeSection .max-width .trending {
@@ -760,6 +763,10 @@ input[type='password']:focus {
   width: 50%;
 }
 
+.homeSection .advertisements {
+  padding: 0 18px;
+}
+
 .video {
   margin-top: 20px;
   height: 0;
@@ -787,7 +794,7 @@ input[type='password']:focus {
   display: none;
 }
 
-.video .play-icon {
+.video .overlyIcon {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -795,19 +802,51 @@ input[type='password']:focus {
   background-color: rgba(23, 21, 34, 0.5);
 }
 
-.video .play-icon img {
+.video .overlyIcon .animatedLogo {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   top: 50%;
   left: 50%;
-  color: #5FC6C9;
-  font-size: 7em;
+  background-color: #5FC6C9;
+  border-radius: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
-.video .play-icon i {
+.video .overlyIcon .animatedLogo div {
+  background-color: #ffffff;
+  position: absolute;
+  width: 5px;
+  height: 40px;
+  top: 60px;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  -webkit-transition: height 0.2s;
+  transition: height 0.2s;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(1) {
+  left: 20px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(2) {
+  left: 30px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(3) {
+  left: 40px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(4) {
+  left: 50px;
+}
+
+.video .overlyIcon .animatedLogo div:nth-child(5) {
+  left: 60px;
+}
+
+.video .overlyIcon i {
   position: absolute;
   top: calc(100% - 7px);
   right: 10px;
@@ -817,11 +856,11 @@ input[type='password']:focus {
   transform: translate(0%, -100%);
 }
 
-.video .play-icon i:nth-child(2) {
+.video .overlyIcon .left {
   right: 50px;
 }
 
-.video .play-icon .slash::after {
+.video .overlyIcon .slash::after {
   content: '';
   position: absolute;
   width: 5px;
@@ -1397,7 +1436,7 @@ input[type='password']:focus {
 }
 
 .sideBySide .row {
-  width: 100%;
+  width: calc(100% - 120px);
   padding: 0 60px;
 }
 
@@ -1732,6 +1771,13 @@ input[type='password']:focus {
   }
   #articleSocialMedia .tag {
     display: none;
+  }
+  .sideBySide .row {
+    width: calc(100% - 20px);
+    padding: 0 10px;
+  }
+  .sideBySide .advertisements {
+    width: calc(100% - 36px);
   }
 }
 

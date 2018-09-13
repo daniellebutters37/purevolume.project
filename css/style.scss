@@ -604,6 +604,7 @@ input[type='password']{
     .max-width{
         display: flex;
         flex-direction: row;
+        align-items: flex-end;
         .trending{
             width: 100%;
             position: relative;
@@ -684,6 +685,9 @@ input[type='password']{
             
         }
     }
+    .advertisements{
+        padding: 0 18px;
+    }
 }
 .video{
     margin-top: 20px;
@@ -706,22 +710,35 @@ input[type='password']{
     .controls{
         display: none;
     }
-    .play-icon{
+    .overlyIcon{
         position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         background-color: transparentize($secondaryColour, .5);
-        img{
+        .animatedLogo{
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             top:50%;
             left:50%;
-            color: $primaryColour;
-            font-size: 7em;
+            background-color: $primaryColour;
+            border-radius: 50%;
             @include transform(translate(-50%,-50%));
-            //mix-blend-mode: multiply;
+            div{
+                background-color: $whiteColour;
+                position: absolute;
+                width: 5px;
+                height: 40px;
+                top: 60px;
+                @include transform(translate(-50%,-100%));
+                @include transition(height .2s);
+                &:nth-child(1){ left: 20px; }
+                &:nth-child(2){ left: 30px; }
+                &:nth-child(3){ left: 40px; }
+                &:nth-child(4){ left: 50px; }
+                &:nth-child(5){ left: 60px; }
+            }
         }
         i{
             position: absolute;
@@ -731,7 +748,7 @@ input[type='password']{
             font-size: 2em;
             @include transform(translate(0%,-100%));
         }
-        i:nth-child(2){
+        .left{
             right: 50px;
         }
         .slash::after{
@@ -1181,7 +1198,7 @@ input[type='password']{
     display: flex;
     flex-direction: row;
     .row{
-        width: 100%;
+        width: calc(100% - 120px);
         padding: 0 60px;
     }
 }
@@ -1497,6 +1514,15 @@ input[type='password']{
     }
     #articleSocialMedia .tag {
         display: none;
+    }
+    .sideBySide{
+        .row{
+            width: calc(100% - 20px);
+            padding: 0 10px;
+        }
+        .advertisements {
+            width: calc(100% - 36px);
+        }
     }
 }
 // ::: Small Mobile :::
