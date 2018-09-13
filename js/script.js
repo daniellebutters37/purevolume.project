@@ -192,6 +192,7 @@ if(document.querySelector('#videoBox') != null){
     var volumeSeekerValue = 100;
     var volumeSeeker = document.querySelector('#videoBox .volumeControl .slider');
     var videoFullScreen = document.querySelector('#videoBox #videoFullScreen');
+    var videoFullScreenCheck = false;
 
     document.addEventListener("keyup", function(event){
         if(document.querySelector(".open-lightBox") != null){
@@ -321,16 +322,31 @@ if(document.querySelector('#videoBox') != null){
     videoFullScreen.addEventListener("click", function(){ fullscreenToggle(); });
     
     function fullscreenToggle(){
-        if( window.innerHeight == screen.height) {
+        if(videoFullScreenCheck) {
             videoPlayer.setAttribute('style', '');
             closeFullscreen();
             videoFullScreen.querySelector('i').className = "fas fa-expand";
+            videoFullScreenCheck = false;
         } else {
             videoPlayer.style.width = '100%';
             videoPlayer.style.maxWidth = '100%';
             videoPlayer.style.height = '100%';
             openFullscreen(videoPlayer);
+            videoFullScreenCheck = true;
             videoFullScreen.querySelector('i').className = "fas fa-compress";
+        }
+    }
+
+    document.addEventListener('webkitfullscreenchange', function(e) { checkFullScreen(); }, false);
+    document.addEventListener('mozfullscreenchange', function(e) { checkFullScreen(); }, false);
+    document.addEventListener('fullscreenchange', function(e) { checkFullScreen(); }, false);
+
+    function checkFullScreen(){
+        if (!window.screenTop && !window.screenY && videoFullScreenCheck) {
+            videoPlayer.setAttribute('style', '');
+            closeFullscreen();
+            videoFullScreen.querySelector('i').className = "fas fa-expand";
+            videoFullScreenCheck = false;
         }
     }
 
@@ -349,8 +365,7 @@ if(document.querySelector('#videoBox') != null){
     }
     
     function closeFullscreen() {
-        video.style.width = "auto";
-        video.style.height = "100%";
+        video.setAttribute('style', '');
         if (document.exitFullscreen) {
           document.exitFullscreen();
         } else if (document.mozCancelFullScreen) {
